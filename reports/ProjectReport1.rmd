@@ -1,0 +1,52 @@
+---
+output: 
+  pdf_document:
+    toc: true
+    number_sections: false
+    keep_tex: true
+    fig_caption: true
+    latex_engine: pdflatex
+    template: ./templates/gsingh-basic.tex
+title: "Project Report 1"
+subtitle: "Frameworks to Support Continuous Delivery"
+subsubtitle: "with Kostas Kangaro"
+
+runhead: "Project Report 1"
+author:
+- name: Gurpreet Singh & Paul Bartlett
+  studentnumber: 250674134 & 250123456
+  affiliation: Software Developers
+teacher: vrygoodteacher
+classname: vrygoodclass
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+geometry: margin=1in
+fontsize: 11pt
+indent: yes
+colorlinks: true
+---
+
+# CS4470Y
+
+## Project description
+
+shortening bug fixing
+shortening maintenance cycles
+Achieving continuous delivery
+
+## Roles
+
+**Gurpreet Singh**
+
+- Lead Architect 
+
+- Documenter
+
+**Paul Bartlett**
+
+- Project Manager 
+
+- Lead Requirements Analyst
+
+- Lead Tester & Quality Controller
+
+## System Requirements

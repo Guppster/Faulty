@@ -1,0 +1,149 @@
+\documentclass[11pt,]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage[unicode=true]{hyperref}
+\PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
+\hypersetup{
+            pdftitle={Project Report 1},
+            colorlinks=true,
+            linkcolor=Maroon,
+            citecolor=blue,
+            urlcolor=blue,
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+% Stuff I added.
+% --------------
+
+\usepackage{indentfirst}
+\usepackage[doublespacing]{setspace}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{layout}   
+\lhead{\sc Project Report 1}
+\chead{}
+\rhead{\thepage}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+
+\renewcommand{\headrulewidth}{0.0pt}
+\renewcommand{\footrulewidth}{0.0pt}
+
+\usepackage{sectsty}
+\sectionfont{\centering}
+\subsectionfont{\centering}
+
+\newtheorem{hypothesis}{Hypothesis}
+
+% Begin document
+% --------------
+
+\begin{document}
+
+\doublespacing
+
+\begin{titlepage}
+    \begin{center}
+    \line(1,0){300} \\ 
+    [0.25in]
+    \huge{\bfseries Project Report 1} \\
+    [2mm]
+    \line(1,0){200} \\
+    [1.5cm] 
+    \textsc{\Large Frameworks to Support Continuous Delivery} \\
+    [0.75cm]
+    \textsc{\Large with Kostas Kangaro} \\
+    [10cm]
+    \end{center}
+    
+    \begin{flushright}
+    \textsc{\Large{Gurpreet Singh \& Paul Bartlett \\} \normalsize\emph{\# 250674134 \& 250123456 \\} \normalsize\emph{Software Developers \\} }
+    
+    \end{flushright}
+    
+\end{titlepage}
+
+
+\newpage
+
+{
+\hypersetup{linkcolor=black}
+\setcounter{tocdepth}{2}
+\tableofcontents
+\newpage
+}
+\section{CS4470Y}\label{cs4470y}
+
+\subsection{Project description}\label{project-description}
+
+shortening bug fixing shortening maintenance cycles Achieving continuous
+delivery
+
+\subsection{Roles}\label{roles}
+
+\textbf{Gurpreet Singh}
+
+\begin{itemize}
+\item
+  Lead Architect
+\item
+  Documenter
+\end{itemize}
+
+\textbf{Paul Bartlett}
+
+\begin{itemize}
+\item
+  Project Manager
+\item
+  Lead Requirements Analyst
+\item
+  Lead Tester \& Quality Controller
+\end{itemize}
+
+\subsection{System Requirements}\label{system-requirements}
+
+\end{document}
+
