@@ -9,15 +9,15 @@ output:
     template: ./templates/gsingh-basic.tex
 title: "Project Report 1"
 subtitle: "Frameworks to Support Continuous Delivery"
-subsubtitle: "with Kostas Kangaro"
+subsubtitle: "with Kostas Kontogiannis"
 
 runhead: "Project Report 1"
 author:
 - name: Gurpreet Singh & Paul Bartlett
-  studentnumber: 250674134 & 250123456
+  studentnumber: 250674134 & 250753008
   affiliation: Software Developers
-teacher: vrygoodteacher
-classname: vrygoodclass
+teacher: Kostas Kontogiannis
+classname: CS4470Y
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 geometry: margin=1in
 fontsize: 11pt
