@@ -121,3 +121,9 @@ development, maintenance, and deployment.
   - FR 1: Make the framework easily deployable into a microservice
   - FR 2: Reduce dependencies and deliver a minimally intrusive product
 
+## Project Deviation
+
+- Asked some other professors if they had any projects available before deciding on one, causing it to take longer than expected
+- Meeting with professor happened a little later than expected, didn't get a reply from email and went to visit office
+- Report had to be created with as much information as we got from recent meeting, extension gave little more room to breathe
+- Haven't started on any technical work or received very much specific information about project yet, planning on changing this very soon
