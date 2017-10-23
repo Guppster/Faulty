@@ -94,12 +94,12 @@
     [1.5cm] 
     \textsc{\Large Frameworks to Support Continuous Delivery} \\
     [0.75cm]
-    \textsc{\Large with Kostas Kangaro} \\
+    \textsc{\Large with Kostas Kontogiannis} \\
     [10cm]
     \end{center}
     
     \begin{flushright}
-    \textsc{\Large{Gurpreet Singh \& Paul Bartlett \\} \normalsize\emph{\# 250674134 \& 250123456 \\} \normalsize\emph{Software Developers \\} }
+    \textsc{\Large{Gurpreet Singh \& Paul Bartlett \\} \normalsize\emph{\# 250674134 \& 250753008 \\} \normalsize\emph{Software Developers \\} }
     
     \end{flushright}
     
@@ -118,8 +118,35 @@
 
 \subsection{Project description}\label{project-description}
 
-shortening bug fixing shortening maintenance cycles Achieving continuous
-delivery
+The focus will be to design and develop tools to deal more efficiently
+with challenges pertaining to shortening bug fixing and maintenance
+cycles and, achieving continuous delivery. There are three sections to
+this project:
+
+\subsubsection{Data Collection}\label{data-collection}
+
+In this section we need to design and implement infrastructure for
+collecting and modeling system data from diverse information sources
+such as application logs, user newsgroups, and technical reports related
+to application failures and application performance,
+
+\subsubsection{Data Processing}\label{data-processing}
+
+Next goal is to design and implement tools for processing, analyzing,
+and amalgamating the acquired information into analytics reports, so
+that these can be efficiently disseminated to the appropriate
+stakeholders such as project managers, system architects and, developers
+and,
+
+\subsubsection{Data Integration}\label{data-integration}
+
+Finally we need to integrate our findings into existing development
+environments by designing and implementing enhancements to existing IDEs
+(e.g.~Eclipse) and collaborative development frameworks, in order to
+assist the appropriate stakeholders to quickly act upon the acquired
+information in their native work environment, and better plan and
+shorten the time required for micro-services application development,
+maintenance, and deployment.
 
 \subsection{Roles}\label{roles}
 
@@ -171,7 +198,12 @@ modeling}\label{section-a-data-collection-and-modeling}
   FR 2: Connect issues to their resolution and make an inference from
   the association
 \item
-  \textbf{Feature 4:} Data combination
+  \textbf{Feature 4:} Application log based Data Collection
+\item
+  QR 1: Allow parsing from diverse options (User newsgroups, technical
+  reports, etc)
+\item
+  \textbf{Feature 5:} Data combination
 \item
   FR 1: Standardize and combine Git data into a central data model
 \item
@@ -185,7 +217,7 @@ software}\label{section-b-creating-report-processing-software}
 
 \begin{itemize}
 \item
-  \textbf{Feature 4:} Conduct Risk Analytics
+  \textbf{Feature 6:} Conduct Risk Analytics
 \item
   FR 1: In the data model figure out risky parts of the code and mark
   them
@@ -195,7 +227,7 @@ software}\label{section-b-creating-report-processing-software}
   FR 3: Identify impact when a test is changed (how much coverage it
   offers)
 \item
-  \textbf{Feature 5:} User Views
+  \textbf{Feature 7:} User Views
 \item
   FR 1: Create a PDF report for stakeholders to see progress in codebase
 \item
@@ -210,7 +242,7 @@ environments}\label{section-c-creating-enhancements-to-dev-environments}
 
 \begin{itemize}
 \item
-  \textbf{Feature 6:} Continuous Integration
+  \textbf{Feature 8:} Continuous Integration
 \item
   FR 1: Create test integration so developer can see risk rating when
   conducting tests
@@ -220,17 +252,35 @@ environments}\label{section-c-creating-enhancements-to-dev-environments}
   FR 3: Research deployment frameworks and integrate risk analysis into
   pipe line
 \item
-  \textbf{Feature 7:} IDE integration
+  \textbf{Feature 9:} IDE integration
 \item
   FR 1: Develop VIM plugin for viewing risk rating of each method/class
 \item
   FR 2: Develop IDEA plugin for viewing risk rating of each method/class
 \item
-  \textbf{Feature 8:} Microservice Plug-And-Play library
+  \textbf{Feature 10:} Microservice Plug-And-Play library
 \item
   FR 1: Make the framework easily deployable into a microservice
 \item
   FR 2: Reduce dependencies and deliver a minimally intrusive product
+\end{itemize}
+
+\subsection{Project Deviation}\label{project-deviation}
+
+\begin{itemize}
+\tightlist
+\item
+  Asked some other professors if they had any projects available before
+  deciding on one, causing it to take longer than expected
+\item
+  Meeting with professor happened a little later than expected, didn't
+  get a reply from email and went to visit office
+\item
+  Report had to be created with as much information as we got from
+  recent meeting, extension gave a little more room to complete
+\item
+  Haven't started on any technical work or received very much specific
+  information about project yet, planning on changing this very soon
 \end{itemize}
 
 \end{document}
