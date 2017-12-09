@@ -6,12 +6,12 @@ output:
     keep_tex: true
     fig_caption: true
     latex_engine: pdflatex
-    template: ./templates/gsingh-basic.tex
-title: "Project Report 1"
+    template: ../templates/gsingh-basic.tex
+title: "Project Report 2"
 subtitle: "Frameworks to Support Continuous Delivery"
-subsubtitle: "with Kostas Kontogiannis"
+subsubtitle: "with Kostas Kontogiannis (?)"
 
-runhead: "Project Report 1"
+runhead: "Project Report 2"
 author:
 - name: Gurpreet Singh & Paul Bartlett
   studentnumber: 250674134 & 250753008
@@ -69,12 +69,16 @@ development, maintenance, and deployment.
 
 - Lead Tester & Quality Controller
 
-## System Requirements
+## How roles have changed
+
+Over the last milestone roles have not changed other than both members trying to get in contact with the supervisor and failing. 
+
+## Revised System Requirements
 
 ### Section A : Data collection and modeling
 
 - **Feature 1:** Git Based Data Collection
-  - FR 1: Extract commits from a .git directory 
+  - FR 1: Extract commits from a .git directory
   - FR 2: Analyze and record classes/methods effected by each commit
   - FR 3: Process and record the amount of code changed with each commit
 
@@ -121,9 +125,15 @@ development, maintenance, and deployment.
   - FR 1: Make the framework easily deployable into a microservice
   - FR 2: Reduce dependencies and deliver a minimally intrusive product
 
+
+## Revised Project Plan
+
+We have no idea how well we are doing in respect to what the supervisor wants therefore all efforts are on trying to contact the supervisor and then development can continue afterwards. This is because we don't want to waste time developing out of specification. Our supervisor has not commented on our initial project plan or our initial system requirements therefore lots of development is not possible.
+
+
 ## Project Deviation
 
-- Asked some other professors if they had any projects available before deciding on one, causing it to take longer than expected
-- Meeting with professor happened a little later than expected, didn't get a reply from email and went to visit office
-- Report had to be created with as much information as we got from recent meeting, extension gave a little more room to complete
-- Haven't started on any technical work or received very much specific information about project yet, planning on changing this very soon
+- Still waiting for professor first point of contact
+- Still waiting to hear what the professor wants for this project
+
+
