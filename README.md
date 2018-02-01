@@ -1,4 +1,6 @@
-# Very Cool Project
+# Faulty 
+
+Fault Localization software as a service to capture faults within large codebases based on analysis of bug reports or issues.
 
 ## Contributors
 *Gurpreet Singh*
