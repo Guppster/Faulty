@@ -52,7 +52,7 @@ calls.
 The next step in delivering the system to a real user, is developing a front
 end where a user can input a repository for the system to begin processing.
 Ideal operation of this tool would occur like other DevOps pipeline tools such
-as Travis.io where a user can link a repository they own and the tool can push
+as travis-ci.org where a user can link a repository they own and the tool can push
 it's results back into the bug report for developers to see. There will not be
 too many interactions available on the front end other than viewing the results
 of the system and picking new repositories.
@@ -107,37 +107,39 @@ Report" back into the bug discussion.
 
 ### Section B : Front-End User Interface
 
-- **Feature 4:**  Doing Doing
-  - FR 1: Too much doing doing
-  - FR 2: Too much doing doing
-  - FR 3: Too much doing doing
+- **Feature 4:**  User is able to scan and mark a new repository for processing
+  - FR 1: Scan user's Github repos using Github's API
+  - FR 2: Allow the user to select ones they wish to run processing on
+  - FR 3: Remember which ones the user selected by storing on backend
 
-- **Feature 5:**  Doing Doing
-  - FR 1: Too much doing doing
-  - FR 2: Too much doing doing
-  - FR 3: Too much doing doing
+- **Feature 5:**  User is able to view the results of a new bug report's processing
+  - FR 1: Monitor output from backend endpoints showing new results for user's repos
+  - FR 2: When a new bug report is created, and the processing finishes, show
+    the output of that processing on a separate page
+  - FR 3: Allow the user to rerun processing on a specific bug report by
+    sending a request to backend
 
-- **Feature 6:**  Doing Doing
-  - FR 1: Too much doing doing
-  - FR 2: Too much doing doing
-  - FR 3: Too much doing doing
+- **Feature 6:**  User is able to login using their Github credentials
+  - FR 1: On first usage redirect user to Github's App authentication page
+  - FR 2: Ask backend to associate bug reports and repositories with this user
+  - FR 3: Redirect user to main UI
 
 ### Section C : Back-End Runtime Processing
 
-- **Feature 7:**  Doing Doing
-  - FR 1: Too much doing doing
-  - FR 2: Too much doing doing
-  - FR 3: Too much doing doing
+- **Feature 7:**  Support front-end operations
+  - FR 1: Allow registration using Github Auth
+  - FR 2: Allow retrieval of processing results for each bug report
+  - FR 3: Support re-running processing on a specific bug report
 
-- **Feature 8:**  Doing Doing
-  - FR 1: Too much doing doing
-  - FR 2: Too much doing doing
-  - FR 3: Too much doing doing
+- **Feature 8:**  Manage the automation of Data Processing (F1, F2, and F3)
+  - FR 1: Automate RSF generation when a new repository is linked
+  - FR 2: Automate keyword generation when a new repository is linked
+  - FR 3: Continuously improve and modify RSF and keywords as code/bugs change
 
-- **Feature 9:**  Doing Doing
-  - FR 1: Too much doing doing
-  - FR 2: Too much doing doing
-  - FR 3: Too much doing doing
+- **Feature 9:**  Handle processing and evaluation when a new bug report comes in
+  - FR 1: Monitor marked repositories for each registered user and trigger when new issue is filed
+  - FR 2: Run through automated ranking algorithm 
+  - FR 3: Store result for later retrieval
 
 ## Project Deviation
 

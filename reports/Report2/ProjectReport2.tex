@@ -147,8 +147,8 @@ relationships between function calls.
 The next step in delivering the system to a real user, is developing a
 front end where a user can input a repository for the system to begin
 processing. Ideal operation of this tool would occur like other DevOps
-pipeline tools such as Travis.io where a user can link a repository they
-own and the tool can push it's results back into the bug report for
+pipeline tools such as travis-ci.org where a user can link a repository
+they own and the tool can push it's results back into the bug report for
 developers to see. There will not be too many interactions available on
 the front end other than viewing the results of the system and picking
 new repositories.
@@ -250,40 +250,48 @@ Interface}\label{section-b-front-end-user-interface}}
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Feature 4:} Doing Doing
+  \textbf{Feature 4:} User is able to scan and mark a new repository for
+  processing
 
   \begin{itemize}
   \tightlist
   \item
-    FR 1: Too much doing doing
+    FR 1: Scan user's Github repos using Github's API
   \item
-    FR 2: Too much doing doing
+    FR 2: Allow the user to select ones they wish to run processing on
   \item
-    FR 3: Too much doing doing
+    FR 3: Remember which ones the user selected by storing on backend
   \end{itemize}
 \item
-  \textbf{Feature 5:} Doing Doing
+  \textbf{Feature 5:} User is able to view the results of a new bug
+  report's processing
 
   \begin{itemize}
   \tightlist
   \item
-    FR 1: Too much doing doing
+    FR 1: Monitor output from backend endpoints showing new results for
+    user's repos
   \item
-    FR 2: Too much doing doing
+    FR 2: When a new bug report is created, and the processing finishes,
+    show the output of that processing on a separate page
   \item
-    FR 3: Too much doing doing
+    FR 3: Allow the user to rerun processing on a specific bug report by
+    sending a request to backend
   \end{itemize}
 \item
-  \textbf{Feature 6:} Doing Doing
+  \textbf{Feature 6:} User is able to login using their Github
+  credentials
 
   \begin{itemize}
   \tightlist
   \item
-    FR 1: Too much doing doing
+    FR 1: On first usage redirect user to Github's App authentication
+    page
   \item
-    FR 2: Too much doing doing
+    FR 2: Ask backend to associate bug reports and repositories with
+    this user
   \item
-    FR 3: Too much doing doing
+    FR 3: Redirect user to main UI
   \end{itemize}
 \end{itemize}
 
@@ -294,40 +302,44 @@ Processing}\label{section-c-back-end-runtime-processing}}
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Feature 7:} Doing Doing
+  \textbf{Feature 7:} Support front-end operations
 
   \begin{itemize}
   \tightlist
   \item
-    FR 1: Too much doing doing
+    FR 1: Allow registration using Github Auth
   \item
-    FR 2: Too much doing doing
+    FR 2: Allow retrieval of processing results for each bug report
   \item
-    FR 3: Too much doing doing
+    FR 3: Support re-running processing on a specific bug report
   \end{itemize}
 \item
-  \textbf{Feature 8:} Doing Doing
+  \textbf{Feature 8:} Manage the automation of Data Processing (F1, F2,
+  and F3)
 
   \begin{itemize}
   \tightlist
   \item
-    FR 1: Too much doing doing
+    FR 1: Automate RSF generation when a new repository is linked
   \item
-    FR 2: Too much doing doing
+    FR 2: Automate keyword generation when a new repository is linked
   \item
-    FR 3: Too much doing doing
+    FR 3: Continuously improve and modify RSF and keywords as code/bugs
+    change
   \end{itemize}
 \item
-  \textbf{Feature 9:} Doing Doing
+  \textbf{Feature 9:} Handle processing and evaluation when a new bug
+  report comes in
 
   \begin{itemize}
   \tightlist
   \item
-    FR 1: Too much doing doing
+    FR 1: Monitor marked repositories for each registered user and
+    trigger when new issue is filed
   \item
-    FR 2: Too much doing doing
+    FR 2: Run through automated ranking algorithm
   \item
-    FR 3: Too much doing doing
+    FR 3: Store result for later retrieval
   \end{itemize}
 \end{itemize}
 
