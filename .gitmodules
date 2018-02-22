@@ -1,0 +1,6 @@
+[submodule "web-interface"]
+	path = web-interface
+	url = git@github.com:Guppster/faulty-ui.git
+[submodule "api"]
+	path = api
+	url = git@github.com:Guppster/faulty-api.git
