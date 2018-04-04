@@ -1,0 +1,474 @@
+\documentclass[11pt,]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage[unicode=true]{hyperref}
+\PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
+\hypersetup{
+            pdftitle={Project Report 3},
+            colorlinks=true,
+            linkcolor=Maroon,
+            citecolor=blue,
+            urlcolor=blue,
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+% Stuff I added.
+% --------------
+
+\usepackage{indentfirst}
+\usepackage[doublespacing]{setspace}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{layout}   
+\lhead{\sc Project Report 3}
+\chead{}
+\rhead{\thepage}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+
+\renewcommand{\headrulewidth}{0.0pt}
+\renewcommand{\footrulewidth}{0.0pt}
+
+\usepackage{sectsty}
+\sectionfont{\centering}
+\subsectionfont{\centering}
+
+\newtheorem{hypothesis}{Hypothesis}
+
+% Begin document
+% --------------
+
+\begin{document}
+
+\doublespacing
+
+\begin{titlepage}
+    \begin{center}
+    \line(1,0){300} \\ 
+    [0.25in]
+    \huge{\bfseries Project Report 3} \\
+    [2mm]
+    \line(1,0){200} \\
+    [1.5cm] 
+    \textsc{\Large Fault Localization using NLP on Bug Reports} \\
+    [0.75cm]
+    \textsc{\Large with Kostas Kontogiannis} \\
+    [10cm]
+    \end{center}
+    
+    \begin{flushright}
+    \textsc{\Large{Gurpreet Singh \& Paul Bartlett \\} \normalsize\emph{Software Developers \\} }
+    
+    \end{flushright}
+    
+\end{titlepage}
+
+
+\newpage
+
+{
+\hypersetup{linkcolor=black}
+\setcounter{tocdepth}{2}
+\tableofcontents
+\newpage
+}
+\hypertarget{faulty}{%
+\section{Faulty}\label{faulty}}
+
+\hypertarget{project-description}{%
+\subsection{Project description}\label{project-description}}
+
+The focus will be to design and develop a system that is capable of
+processing bug reports and extracting useful information about them, and
+then using that information to provide the developers useful insight
+into where the bug may be within a large code base. The goal is to
+reduce the amount of time a developer will need to reach the correct bug
+after initially reviewing the bug report.
+
+The system will be developed in such a way that it is easily integrated
+into a continuous delivery pipeline. The project can be divided into
+three distinct components.
+
+\hypertarget{data-processing}{%
+\subsubsection{Data Processing}\label{data-processing}}
+
+In order for the entire system to work correctly the core essential data
+processing and analysis has to be effective in detecting the errors.
+Therefore, the first step is developing a system that can use NLP to
+process all the bug reports associated with a project to come up with a
+list of keywords and process the code base to determine a map of
+relationships between function calls. This code has now been written and
+is mostly within our project.
+
+\hypertarget{user-interface}{%
+\subsubsection{User Interface}\label{user-interface}}
+
+The next step in delivering the system to a real user, is developing a
+front end where a user can input a repository for the system to begin
+processing. Ideal operation of this tool would occur like other DevOps
+pipeline tools such as travis-ci.org where a user can link a repository
+they own and the tool can push it's results back into the bug report for
+developers to see. There will not be too many interactions available on
+the front end other than viewing the results of the system and picking
+new repositories. This portion of the project is not yet completed.
+Refer to deviations section to understand the reasoning for putting the
+interface as the last priority.
+
+\hypertarget{runtime-processing}{%
+\subsubsection{Runtime Processing}\label{runtime-processing}}
+
+Since the front end will be making REST API calls to Github
+repositories, and we need a way to persist processing while providing
+consistent feedback to users, there needs to be a backend API service
+allowing those operations to occur. Another task this portion will be
+responsible for is handling the flow of information when a new bug
+report appears. The backend will be responsible for detecting this,
+starting a new processing task, and posting a ``Fault Report'' back into
+the bug discussion. A substantial amount of work has been done on this
+portion of the project. The backend is able to communicate with Github
+and catch issues posted by users.
+
+\hypertarget{revised-roles}{%
+\subsection{Revised Roles}\label{revised-roles}}
+
+\textbf{Gurpreet Singh}
+
+\begin{itemize}
+\item
+  Lead Architect / Back-End developer
+\item
+  Documenter
+\end{itemize}
+
+\textbf{Paul Bartlett}
+
+\begin{itemize}
+\item
+  Lead Front-End developer
+\item
+  Lead Tester \& Quality Controller
+\end{itemize}
+
+\hypertarget{revised-system-requirements}{%
+\subsection{Revised System
+Requirements}\label{revised-system-requirements}}
+
+\hypertarget{section-a-data-processing}{%
+\subsubsection{Section A : Data
+Processing}\label{section-a-data-processing}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Feature 1:} Able to generate entity relationship rsf from
+  codebase
+
+  \begin{itemize}
+  \tightlist
+  \item
+    FR 1: Pass code through cdif2rsf to generate rsf
+  \item
+    FR 2: Clean up incorrect entity and relationships
+  \item
+    FR 3: Store in accessible data storage for next step to use
+  \end{itemize}
+\item
+  \textbf{Feature 2:} Able to generate set of keywords from bug
+  description
+
+  \begin{itemize}
+  \tightlist
+  \item
+    FR 1: Compare each token to codebase to find valid functions
+  \item
+    FR 2: Expand initial token set by a factor of 3
+  \item
+    FR 3: Use NLP to determine question context
+  \end{itemize}
+\item
+  \textbf{Feature 3:} Able to combine keywords and rsf into ranked
+  outcomes
+
+  \begin{itemize}
+  \tightlist
+  \item
+    FR 1: Run LSI on each token and generate search space for each
+  \item
+    FR 2: Expand the search space for each result in FR 1
+  \item
+    FR 3: Find similarities between the initial token expansion and the
+    final set of tokens
+  \item
+    FR 4: Apply ranking equation from research paper to come up with
+    final outcome
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{section-b-front-end-user-interface}{%
+\subsubsection{Section B : Front-End User
+Interface}\label{section-b-front-end-user-interface}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Feature 4:} User is able to scan and mark a new repository for
+  processing
+
+  \begin{itemize}
+  \tightlist
+  \item
+    FR 1: Scan user's Github repos using Github's API
+  \item
+    FR 2: Allow the user to select ones they wish to run processing on
+  \item
+    FR 3: Remember which ones the user selected by storing on backend
+  \end{itemize}
+\item
+  \textbf{Feature 5:} User is able to view the results of a new bug
+  report's processing
+
+  \begin{itemize}
+  \tightlist
+  \item
+    FR 1: Monitor output from backend endpoints showing new results for
+    user's repos
+  \item
+    FR 2: When a new bug report is created, and the processing finishes,
+    show the output of that processing on a separate page
+  \item
+    FR 3: Allow the user to rerun processing on a specific bug report by
+    sending a request to backend
+  \end{itemize}
+\item
+  \textbf{Feature 6:} User is able to login using their Github
+  credentials
+
+  \begin{itemize}
+  \tightlist
+  \item
+    FR 1: On first usage redirect user to Github's App authentication
+    page
+  \item
+    FR 2: Ask backend to associate bug reports and repositories with
+    this user
+  \item
+    FR 3: Redirect user to main UI
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{section-c-back-end-runtime-processing}{%
+\subsubsection{Section C : Back-End Runtime
+Processing}\label{section-c-back-end-runtime-processing}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Feature 7:} Support front-end operations
+
+  \begin{itemize}
+  \tightlist
+  \item
+    FR 1: Allow registration using Github Auth
+  \item
+    FR 2: Allow retrieval of processing results for each bug report
+  \item
+    FR 3: Support re-running processing on a specific bug report
+  \item
+    FR 4: Create a API where the UI can fetch everything from
+  \end{itemize}
+\item
+  \textbf{Feature 8:} Manage the automation of Data Processing (F1, F2,
+  and F3)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    FR 1: Automate RSF generation when a new repository is linked
+  \item
+    FR 2: Automate keyword generation when a new repository is linked
+  \item
+    FR 3: Continuously improve and modify RSF and keywords as code/bugs
+    change
+  \end{itemize}
+\item
+  \textbf{Feature 9:} Handle processing and evaluation when a new bug
+  report comes in
+
+  \begin{itemize}
+  \tightlist
+  \item
+    FR 1: Monitor marked repositories for each registered user and
+    trigger when new issue is filed
+  \item
+    FR 2: Run through automated ranking algorithm
+  \item
+    FR 3: Store result for later retrieval
+  \item
+    FR 4: Be able to connect to a repository and fetch an issue when it
+    is posted
+  \end{itemize}
+\item
+  \textbf{Feature 10:} Combine each element of data processing into the
+  backend runtime
+
+  \begin{itemize}
+  \tightlist
+  \item
+    FR 1: Combine entity generation into token generation
+  \item
+    FR 2: Combine FR1 with RSF processing all into one unit
+  \item
+    FR 3: Move all functionality to an exposed part of the API
+  \item
+    FR 4: Create all endpoints for data processing functionality
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{project-actual-and-deviations}{%
+\subsection{Project Actual and
+Deviations}\label{project-actual-and-deviations}}
+
+Refer to the attached spreadsheet to see the current progress on the
+project. Some deviations we made from the original plan during this
+iteration include changing the priority of some features and spending
+more time on parts of the project we thought would be easy. One of the
+causes for this was the lack of code organization and commenting present
+in the research project we are working with. This lead to a lot of
+reformatting which wasn't terrible but still consumed time we would have
+liked to spend elsewhere. We were also relying on receiving an
+additional research code base to reference but we were unable to
+communicate with the people in charge of the research.
+
+We changed the priority of the frontend features and made them last
+priority. This was done because we decided that having the functional
+portion of the code working is much more important than focusing on the
+looks.
+
+\hypertarget{list-of-features-that-have-been-implemented}{%
+\subsubsection{List of features that have been
+implemented}\label{list-of-features-that-have-been-implemented}}
+
+Feature 1
+
+\begin{itemize}
+\tightlist
+\item
+  Requirement 1
+\item
+  Requirement 2
+\end{itemize}
+
+Feature 2
+
+\begin{itemize}
+\tightlist
+\item
+  Requirement 1
+\item
+  Requirement 2
+\end{itemize}
+
+Feature 3
+
+\begin{itemize}
+\tightlist
+\item
+  Requirement 1
+\item
+  Requirement 2
+\item
+  Requirement 3
+\item
+  Requirement 4
+\end{itemize}
+
+Feature 7
+
+\begin{itemize}
+\tightlist
+\item
+  Requirement 1
+\item
+  Requirement 2
+\item
+  Requirement 4
+\end{itemize}
+
+Feature 9
+
+\begin{itemize}
+\tightlist
+\item
+  Requirement 1
+\item
+  Requirement 4
+\end{itemize}
+
+Feature 10
+
+\begin{itemize}
+\tightlist
+\item
+  Requirement 4
+\end{itemize}
+
+\hypertarget{future-implementation-plan-to-completion}{%
+\subsection{Future implementation plan to
+completion}\label{future-implementation-plan-to-completion}}
+
+The next step for this project is putting everything together. By the
+next milestone we want to atleast be able to completely aggregate issues
+from a Github repo and produce results to the backend. When this process
+is reliable and consistent we will create a minimal web interface to
+display the results.
+
+The next major problem we will be running into is combining multiple
+parts of the data processing section (features 1, 2, 3) into the runtime
+section (features 7, 8, 9). Currently they are operating separately of
+each other. We have created a new feature (10) to handle work related to
+this task.
+
+\end{document}
+
