@@ -6,27 +6,36 @@ output:
     keep_tex: true
     fig_caption: true
     latex_engine: pdflatex
-    template: ../templates/gsingh-achemso.tex
+    template: "../templates/gsingh-research.tex"
+
 title: "Faulty: Fault Localization as a Service"
-subtitle: "Project Report Final"
-subsubtitle: "Gurpreet Singh & Paul Bartlett"
-runhead: "Final Report"
+school-name: "University of Western Ontario"
+department: "Department of Computer Science"
+major-heading: "CS4470Y: Software Maintenance and Configuration"
+minor-heading: "Final Project Report"
+
+instructor: 
+- firstname: "Nazim"
+  lastname: "Madhavji"
+
+supervisor: 
+ - firstname: "Kostas" 
+   lastname: "Kontogiannis"
+
 author:
-- name: Gurpreet Singh & Paul Bartlett
-  affiliation: CS4470Y - Software Maintenance and Configuration Management
-  department: Department of Computer Science
-  school: Western University
-  teacher: Nazim Madhavji
-  supervisor: Kostas Kontogiannis
+- firstname: "Gurpreet"
+  lastname: "Singh"
+- firstname: "Paul"
+  lastname: "Bartlett"
+
+logo: "../images/uwo.jpg"
+
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 geometry: margin=1in
-fontsize: 12pt
-indent: yes
-colorlinks: true
 ---
 
 # Abstract (200-300 words)
-test
+hello people
 
 # Introduction (1.5 pages max)
 
@@ -47,3 +56,5 @@ test
 # Conclusions (1 page max)
 
 # Future Work and Lessons Learnt (1 page max)
+hello sorr
+

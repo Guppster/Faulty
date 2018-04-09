@@ -12,9 +12,9 @@
 \usepackage[T1]{fontenc} % Output font encoding for international characters
 
 \hypersetup{
-    pdftitle={Faulty: Fault Localization as a Service},    % title
-    pdfauthor={},     % author
-    pdfcreator={},   % creator of the document
+    pdftitle={$title$},    % title
+    pdfauthor={$author.name$},     % author
+    pdfcreator={$author.name$},   % creator of the document
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -45,13 +45,13 @@
 	%	Headings
 	%------------------------------------------------
 	
-	\textsc{\LARGE University of Western Ontario}\\[0.8cm] % Main heading such as the name of your university/college
+	\textsc{\LARGE $school-name$}\\[0.8cm] % Main heading such as the name of your university/college
 
-	\textsc{\Large Department of Computer Science}\\[1.5cm] % Major heading such as course name
+	\textsc{\Large $department$}\\[1.5cm] % Major heading such as course name
 	
-	\textsc{\large CS4470Y: Software Maintenance and Configuration}\\[0.8cm] % Major heading such as course name
+	\textsc{\large $major-heading$}\\[0.8cm] % Major heading such as course name
 	
-	\textsc{\large Final Project Report}\\[0.8cm] % Minor heading such as course title
+	\textsc{\large $minor-heading$}\\[0.8cm] % Minor heading such as course title
 	
 	%------------------------------------------------
 	%	Title
@@ -59,7 +59,7 @@
 	
 	\HRule\\[0.4cm]
 	
-	{\huge\bfseries Faulty: Fault Localization as a Service}\\[0.4cm] % Title of your document
+	{\huge\bfseries $title$}\\[0.4cm] % Title of your document
 	
 	\HRule\\[1.5cm]
 	
@@ -71,19 +71,30 @@
 		\begin{flushleft}
 			\large
 			\textit{Author}\\
-            			Gurpreet \textsc{Singh} \\             			Paul \textsc{Bartlett} \\ 		\end{flushleft}
+            $for(author)$
+			$author.firstname$ \textsc{$author.lastname$} \\ $sep$
+            $endfor$
+		\end{flushleft}
 	\end{minipage}
 	~
 	\begin{minipage}{0.4\textwidth}
 		\begin{flushright}
-            			    \large
+            $if(supervisor)$
+			    \large
 			    \textit{Supervisor}\\
-                                    Kostas \textsc{Kontogiannis}\\[0.5cm]
-                            
-                            \large
+                $for(supervisor)$
+                    $supervisor.firstname$ \textsc{$supervisor.lastname$}\\[0.5cm]
+                $endfor$
+            $endif$
+
+            $if(instructor)$
+                \large
                 \textit{Instructor}\\
-                                    Nazim \textsc{Madhavji}\\
-                            		\end{flushright}
+                $for(instructor)$
+                    $instructor.firstname$ \textsc{$instructor.lastname$}\\
+                $endfor$
+            $endif$
+		\end{flushright}
 	\end{minipage}
 	
 	% If you don't want a supervisor, uncomment the two lines below and comment the code above
@@ -102,61 +113,26 @@
 	%	Logo
 	%------------------------------------------------
 	
-    	\vfill\vfill
-	\includegraphics[width=0.2\textwidth]{../images/uwo.jpg}\\[1cm] % Include a department/university logo - this will require the graphicx package
-    	 
+    $if(logo)$
+	\vfill\vfill
+	\includegraphics[width=0.2\textwidth]{$logo$}\\[1cm] % Include a department/university logo - this will require the graphicx package
+    $endif$
+	 
 	%----------------------------------------------------------------------------------------
 	
 	\vfill % Push the date up 1/4 of the remaining page
 	
 \end{titlepage}
 
+$if(abstract)$
+\begin{abstract}
+    $abstract$
+\end{abstract}
+$endif$
 
-\hypertarget{abstract-200-300-words}{%
-\section{Abstract (200-300 words)}\label{abstract-200-300-words}}
+$body$
 
-hello people
-
-\hypertarget{introduction-1.5-pages-max}{%
-\section{Introduction (1.5 pages
-max)}\label{introduction-1.5-pages-max}}
-
-\hypertarget{background-and-related-work-2-pages-max}{%
-\section{Background and Related Work (2 pages
-max)}\label{background-and-related-work-2-pages-max}}
-
-\hypertarget{concepts-terms-definitions-equations-1-page-max}{%
-\section{Concepts, Terms, Definitions, Equations (1 page
-max)}\label{concepts-terms-definitions-equations-1-page-max}}
-
-\hypertarget{development-objectives-0.75-page-max}{%
-\section{Development Objectives (0.75 page
-max)}\label{development-objectives-0.75-page-max}}
-
-\hypertarget{system-requirements-2-pages-max}{%
-\section{System Requirements (2 pages
-max)}\label{system-requirements-2-pages-max}}
-
-\hypertarget{development-strategy-2-pages-max}{%
-\section{Development Strategy (2 pages
-max)}\label{development-strategy-2-pages-max}}
-
-\hypertarget{results-10-pages-max}{%
-\section{Results (10 pages max)}\label{results-10-pages-max}}
-
-\hypertarget{discussion-1.5-pages-max}{%
-\section{Discussion (1.5 pages max)}\label{discussion-1.5-pages-max}}
-
-\hypertarget{conclusions-1-page-max}{%
-\section{Conclusions (1 page max)}\label{conclusions-1-page-max}}
-
-\hypertarget{future-work-and-lessons-learnt-1-page-max}{%
-\section{Future Work and Lessons Learnt (1 page
-max)}\label{future-work-and-lessons-learnt-1-page-max}}
-
-hello sorr
-
-\bibliography{}
+\bibliography{$bibfile$}
 
 %----------------------------------------------------------------------------------------
 
