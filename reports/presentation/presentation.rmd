@@ -1,7 +1,7 @@
 ---
 title: "Faulty"
 subtitle: "Bug Localization as a Service"
-author: "Gurpreet Singh"
+author: "Gurpreet Singh & Paul Bartlett"
 date: '`r Sys.Date()`'
 output:
   ioslides_presentation:
@@ -28,7 +28,7 @@ output:
 - User interface was command line based with minimal input
 - Only supported single operations
 
-## Concepts
+## Concepts {.smaller}
 
 ### RSF
 - A map of relationships betweens tokens within a codebase
@@ -44,7 +44,7 @@ output:
 - Tokens extracted from the bug report can be expanded
 - Expansion means including tokens that are referenced by the original token set 
 
-## Development Objectives
+## Development Objectives {.smaller}
 
 ### Develop a complete system
 - Combine scripts and java code into a easy to access complete system
@@ -58,4 +58,36 @@ output:
 ### Operate as a standalone service with a UI
 - Work in a similar fashion to other CI tools (like travis, etc)
 - Allow users control to hook into any of their repositories 
+
+## Development Strategy {.smaller}
+
+### Technologies
+- Kotlin
+- Java
+- Javalin
+- MongoDB
+- Github Webhooks
+
+### Tools
+- Intellij Idea
+- NeoVim
+- Robo3T
+- ngrok
+
+## Current progress {.smaller}
+
+### BugLocalization Project
+- Restructured and cleaned up codebase
+- Reduced very large codebase to 10 files 
+- Documented and made more readable for easier integration 
+
+### API
+- Able to monitor a Github repo for events
+- Detect new issues and add into a mongo database
+- Able to start and end deployments on Pull Requests
+
+## BugLocalization Demo
+
+
+## API Demo
 
