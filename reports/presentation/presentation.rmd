@@ -1,0 +1,22 @@
+---
+title: "Faulty"
+subtitle: "Bug Localization as a Service"
+author: "Gurpreet Singh"
+date: '`r Sys.Date()`'
+output:
+  ioslides_presentation:
+    widescreen: true
+    df_print: paged
+    css: "./ioslides.css"
+---
+
+---
+# Requirements
+---
+
+## Background
+
+### Cool facts
+- one
+- two
+- three
