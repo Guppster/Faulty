@@ -4,9 +4,19 @@
 %% Place any additional packages needed here.  Only include packages
 %% which are essential, to avoid problems later.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{chemformula} % Formula subscripts using \ch{}
 \usepackage{hyperref}
-\usepackage{mathpazo} % Palatino font
+\usepackage[margin=1in]{geometry}
+\usepackage{mathptmx}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\setcounter{secnumdepth}{0}% % Turns off numbering for sections
+\pagestyle{fancy}
+\rhead{$for(author)$ $author.lastname$, $author.firstname$. $endfor$}
+\lhead{\thepage\ of \pageref{LastPage}}
+
+
+\usepackage{chemformula} % Formula subscripts using \ch{}
 \usepackage[T1]{fontenc} % Use modern font encodings
 \usepackage[utf8]{inputenc} % Required for inputting international characters
 \usepackage[T1]{fontenc} % Output font encoding for international characters
@@ -125,9 +135,8 @@
 \end{titlepage}
 
 $if(abstract)$
-\begin{abstract}
-    $abstract$
-\end{abstract}
+\begin{abstract} 
+{\bf $abstract-bold$} $abstract$ \end{abstract} 
 $endif$
 
 $body$

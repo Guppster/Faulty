@@ -30,31 +30,41 @@ author:
 
 logo: "../images/uwo.jpg"
 
+abstract-bold: Lorem ipsum sodales, accumsan neque eu, placerat purus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla id varius metus, id vestibulum purus. Nullam malesuada urna purus, quis euismod velit tristique et. Fusce auctor laoreet arcu ac maximus. Duis ultricies malesuada dui id pharetra. Donec tempus semper enim, in interdum ante pharetra sed. Vivamus vel accumsan metus. Vivamus eu enim est. Duis ac dolor a quam lacinia interdum in ut sem. Ut ipsum orci, dignissim vel ante eget, blandit sollicitudin dolor.
+abstract:  Sed eu orci dolor sit amet, consectetur adipiscing elit. Duis dapibus nisl vitae tempor placerat. Duis feugiat odio vitae quam pellentesque, ac semper ex sagittis. Nunc id egestas tortor. Morbi nibh tortor, suscipit vel libero quis, placerat molestie nulla. Nullam pellentesque ex ac viverra lobortis. Donec hendrerit nibh nisi, a bibendum urna efficitur ut. Cras venenatis sem magna, vel dignissim augue convallis a. Proin sapien justo, viverra ac enim sit amet, cursus aliquet tellus. Nulla at lacus magna. Nullam sit amet dui convallis, interdum felis eu, viverra ligula. Pellentesque sed mollis nibh, at ultricies nisi.Quisque id velit suscipit ipsum auctor egestas egestas sit amet dui. Curabitur at sem nunc. Nunc non ultrices ex, et egestas odio.  
+
 date: "`r format(Sys.time(), '%B %d, %Y')`"
-geometry: margin=1in
 ---
 
-# Abstract (200-300 words)
-hello people
+# Introduction _(1.5 pages max)_
 
-# Introduction (1.5 pages max)
+# Background and Related Work _(2 pages max)_
 
-# Background and Related Work (2 pages max)
+This project was conceived from research that Professor Kontogainnis had
+completed with past students regarding the task of determining faults in
+a large codebase using only past bug reports. Past students had experimented
+with multiple algorithms for processing large amounts of bug reports in order
+to come up with an index of files that are most likely to have a new bug
+within them. 
 
-# Concepts, Terms, Definitions, Equations (1 page max)
+The original system consisted of a collection of scripts written in Java,
+Python and Shell. The scripts were fairly distributed and had very little
+documentation. Most of the work was done in intermediate steps and did
+not fit well together as a system because too much user intervention was
+required between steps.
 
-# Development Objectives (0.75 page max)
+# Concepts, Terms, Definitions, Equations _(1 page max)_
 
-# System Requirements (2 pages max)
+# Development Objectives _(0.75 page max)_
 
-# Development Strategy (2 pages max)
+# System Requirements _(2 pages max)_
 
-# Results (10 pages max)
+# Development Strategy _(2 pages max)_
 
-# Discussion (1.5 pages max)
+# Results _(10 pages max)_
 
-# Conclusions (1 page max)
+# Discussion _(1.5 pages max)_
 
-# Future Work and Lessons Learnt (1 page max)
-hello sorr
+# Conclusions _(1 page max)_
 
+# Future Work and Lessons Learnt _(1 page max)_
