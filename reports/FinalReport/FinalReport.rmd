@@ -65,19 +65,12 @@ A database entry for each bug report used for the analysis. Each bug report cont
 Tokens extracted from the bug report are expanded to find other similar tokens. Token expansion includes tokens that are referenced by the original token set.
 
 ### Clique
-<<<<<<< HEAD
-A collection of tokens that are referenced the most within the expanded set of tokens.
-
-### Cluster
-A group of relationships that are closely related to each other.
-=======
 
 - A collection of tokens that are referenced the most within the expanded set of tokens
 
 ### Cluster
 
 - A group of relationships that are closely related to each other
->>>>>>> 70037810d221e2da520eaaa1b337d70e8ec1baac
 
 # Development Objectives _(0.75 page max)_
 
