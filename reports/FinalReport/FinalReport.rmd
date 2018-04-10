@@ -291,11 +291,8 @@ Completing O2 added the ability to connect to GitHub using their API and get iss
 
 ### Future work
 
-- Develop software to process issues incrementally into the BugLocalization
-- Integrate the BugLocalization project as part of the API and utilize its full
-  power
-- Make a web UI similar to Travis to display results 
+For further development, we would want to develop software to process issues incrementally into the BugLocalization. We would then integrate the BugLocalization project as part of the API and utilize its full power. Since we did not manage to complete O3, we would also want to make a web UI similar to Travis to display results.
 
 ### Lessons learnt
 
-- Develop consistent communication plan with stakeholders
+We have learned from this project how important it is to develop consistent communication plan with stakeholders. At many times during this project, we went long periods of time without meeting to discuss how our progress is going. This created some problems because we were unsure of how to run the program initially and had to email a grad student to get some of the missing files. Getting email responses took longer than in person, so having more consistency to meet and discuss problems in person would have been beneficial.
