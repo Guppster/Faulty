@@ -10,9 +10,55 @@ output:
     css: "./ioslides.css"
 ---
 
----
-# Requirements
----
+## Outline
+- Problem Description
+- Concepts
+- Background and Related work
+- Architecture of BugLocalization
+- Development Objectives
+- Development Strategy
+- Faulty Architecture
+- Current Progress
+- Demos
+- Limitations and Future work
+
+## Problem Description
+
+### Original Project Problem
+- Given a collection of bug reports 
+- Given a collection of code entity relationships
+
+Determine a technique to identify root cause of a bug report
+
+### Next step problem statement
+
+Package a bug localization solution in a way that it is easily accessible
+and pluggable into an existing project. 
+Allow developers to make use of the bug localization results effectively.
+
+## Concepts {.smaller}
+
+### RSF
+- A map of relationships betweens tokens within a codebase
+- A token is a keyword in the codebase (ex. method, filename)
+- Created using preprocessing scripts
+- Allows us to verify tokens inside of bug reports
+
+### Bug Report
+- A database entry for each bug report
+- Contains a String field containing what a user wrote inside their bug report
+
+### Token Expansion
+- Tokens extracted from the bug report can be expanded
+- Expansion means including tokens that are referenced by the original token set 
+
+## Concepts {.smaller}
+
+### Clique
+- A collection of tokens that are referenced the most within the expanded set of tokens
+
+### Cluster
+- A group of relationships that are closely related to each other
 
 ## Background and Related Work
 
@@ -28,21 +74,10 @@ output:
 - User interface was command line based with minimal input
 - Only supported single operations
 
-## Concepts {.smaller}
-
-### RSF
-- A map of relationships betweens tokens within a codebase
-- A token is a keyword in the codebase (ex. method)
-- Created using preprocessing scripts
-- Allows us to verify tokens inside of bug reports
-
-### Bug Report
-- A database entry for each bug report
-- Contains a String field containing what a user wrote inside their bug report
-
-### Token Expansion
-- Tokens extracted from the bug report can be expanded
-- Expansion means including tokens that are referenced by the original token set 
+## Architecture of BugLocalization {.smaller}
+```{r, out.width = "450px", echo=FALSE}
+knitr::include_graphics("../images/BugLocalizationFlow.png")
+```
 
 ## Development Objectives {.smaller}
 
@@ -73,6 +108,12 @@ output:
 - NeoVim
 - Robo3T
 - ngrok
+
+## Faulty Architecture {.smaller}
+
+```{r, out.width = "500px", echo=FALSE}
+knitr::include_graphics("../images/Flow.png")
+```
 
 ## Current progress {.smaller}
 

@@ -1,3 +1,0 @@
-\beamer@subsectionintoc {0}{1}{Background and Related Work}{2}{0}{0}
-\beamer@subsectionintoc {0}{2}{Concepts}{5}{0}{0}
-\beamer@subsectionintoc {0}{3}{Development Objectives}{9}{0}{0}
