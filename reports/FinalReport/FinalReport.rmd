@@ -51,6 +51,7 @@ abstract:  Sed eu orci dolor sit amet, consectetur adipiscing elit. Duis
     odio.  
 
 date: "`r format(Sys.time(), '%B %d, %Y')`"
+bibliography: bibliography.bib
 ---
 
 # Introduction _(1.5 pages max)_
