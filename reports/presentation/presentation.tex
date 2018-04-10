@@ -1,0 +1,195 @@
+\documentclass[ignorenonframetext,]{beamer}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\newif\ifbibliography
+\hypersetup{
+            pdftitle={Faulty},
+            pdfauthor={Gurpreet Singh},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+
+% Prevent slide breaks in the middle of a paragraph:
+\widowpenalties 1 10000
+\raggedbottom
+
+\AtBeginPart{
+  \let\insertpartnumber\relax
+  \let\partname\relax
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \let\insertsectionnumber\relax
+    \let\sectionname\relax
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \let\insertsubsectionnumber\relax
+  \let\subsectionname\relax
+  \frame{\subsectionpage}
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+
+\title{Faulty}
+\subtitle{Bug Localization as a Service}
+\author{Gurpreet Singh}
+\date{2018-04-09}
+
+\begin{document}
+\frame{\titlepage}
+
+\subsection{Background and Related
+Work}\label{background-and-related-work}
+
+\begin{frame}{Preprocessing scripts}
+
+\begin{itemize}
+\tightlist
+\item
+  Extracted rsf from code
+\item
+  Formatted bug reports for processing
+\item
+  Prepares file structure for the BugLocalization project
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{BugLocalization}
+
+\begin{itemize}
+\tightlist
+\item
+  Used extracted bug reports and code rsf
+\item
+  Produces output ranking files based on probability of containing a bug
+\item
+  Written in Shell, Python and Java
+\item
+  User interface was command line based with minimal input
+\item
+  Only supported single operations
+\end{itemize}
+
+\end{frame}
+
+\subsection{Concepts}\label{concepts}
+
+\begin{frame}{RSF}
+
+\begin{itemize}
+\tightlist
+\item
+  A map of relationships betweens tokens within a codebase
+\item
+  A token is a keyword in the codebase (ex. method)
+\item
+  Created using preprocessing scripts
+\item
+  Allows us to verify tokens inside of bug reports
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Bug Report}
+
+\begin{itemize}
+\tightlist
+\item
+  A database entry for each bug report
+\item
+  Contains a String field containing what a user wrote inside their bug
+  report
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Token Expansion}
+
+\begin{itemize}
+\tightlist
+\item
+  Tokens extracted from the bug report can be expanded
+\item
+  Expansion means including tokens that are referenced by the original
+  token set
+\end{itemize}
+
+\end{frame}
+
+\subsection{Development Objectives}\label{development-objectives}
+
+\begin{frame}{Develop a complete system}
+
+\begin{itemize}
+\tightlist
+\item
+  Combine scripts and java code into a easy to access complete system
+\item
+  System should be able to handle new codebases and improve with new bug
+  reports
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Be able to integrate with a Github based workflow}
+
+\begin{itemize}
+\tightlist
+\item
+  Fetch new issues are they are created in a repo and process them
+\item
+  Push results back to the issue page so the developers can get a head
+  start
+\item
+  Allow users to authenticate using Github
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Operate as a standalone service with a UI}
+
+\begin{itemize}
+\tightlist
+\item
+  Work in a similar fashion to other CI tools (like travis, etc)
+\item
+  Allow users control to hook into any of their repositories
+\end{itemize}
+
+\end{frame}
+
+\end{document}

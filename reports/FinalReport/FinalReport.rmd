@@ -55,16 +55,76 @@ required between steps.
 
 # Concepts, Terms, Definitions, Equations _(1 page max)_
 
+### RSF
+An RSF is a map of relationships betweens tokens within a codebase, where a token is a keyword in the codebase such as a method. It is generated using preprocessing scripts, and the result allows us to verify tokens inside of bug reports.
+
+### Bug Report
+A database entry for each bug report used for the analysis. Each bug report contains a String field containing what a user wrote inside their bug report.
+
+### Token Expansion
+Tokens extracted from the bug report are expanded to find other similar tokens. Token expansion includes tokens that are referenced by the original token set.
+
 # Development Objectives _(0.75 page max)_
+
+### Develop a complete system
+- Combine scripts and java code into a easy to access complete system
+- System should be able to handle new codebases and improve with new bug reports
+
+### Be able to integrate with a Github based workflow
+- Fetch new issues are they are created in a repo and process them
+- Push results back to the issue page so the developers can get a head start
+- Allow users to authenticate using Github
+
+### Operate as a standalone service with a UI
+- Work in a similar fashion to other CI tools (like travis, etc)
+- Allow users control to hook into any of their repositories 
 
 # System Requirements _(2 pages max)_
 
 # Development Strategy _(2 pages max)_
 
+### Technologies
+- Kotlin
+- Java
+- Javalin
+- MongoDB
+- Github Webhooks
+
+### Tools
+- Intellij Idea
+- NeoVim
+- Robo3T
+- ngrok
+
 # Results _(10 pages max)_
+
+### BugLocalization Project
+- Restructured and cleaned up codebase
+- Reduced very large codebase to 10 files 
+- Documented and made more readable for easier integration 
+
+### API
+- Able to monitor a Github repo for events
+- Detect new issues and add into a mongo database
+- Able to start and end deployments on Pull Requests
 
 # Discussion _(1.5 pages max)_
 
 # Conclusions _(1 page max)_
 
+### Late Start
+- Second iteration of project
+- Had to re-purpose project after second milestone
+
+### Communication problems 
+- lack of communication for the supervisor long periods of time
+
 # Future Work and Lessons Learnt _(1 page max)_
+
+### Future work
+- Develop software to process issues incrementally into the BugLocalization
+- Integrate the BugLocalization project as part of the API and utilize its full power
+- Make a web UI similar to travis to display results 
+
+### Lessons learnt
+- Develop consistent communication plan with stakeholders

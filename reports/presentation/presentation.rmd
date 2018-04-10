@@ -97,7 +97,7 @@ output:
 - Had to re-purpose project after second milestone
 
 ### Communication problems 
-- lack of communication for th supervisor long periods of time
+- lack of communication for the supervisor long periods of time
 
 ## Future Work and Lessons Learnt
 
