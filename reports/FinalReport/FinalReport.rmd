@@ -66,11 +66,11 @@ Tokens extracted from the bug report are expanded to find other similar tokens. 
 
 ### Clique
 
-- A collection of tokens that are referenced the most within the expanded set of tokens
+A collection of tokens that are referenced the most within the expanded set of tokens.
 
 ### Cluster
 
-- A group of relationships that are closely related to each other
+A group of relationships that are closely related to each other.
 
 # Development Objectives _(0.75 page max)_
 
@@ -81,19 +81,76 @@ Since they are so many individual parts to the system required to run the system
 We saw a great opportunity to integrate this system into GitHub's system. Initially, the system was set up to read reports from BugZilla, but we wanted to add the ability to integrate the system with GitHib's issue tracker. This would entail fetching new issues as they are created in a repo and processing them, pushing results back to the issue page so the developers can get a head start, and allowing users to authenticate using GitHub.
 
 ### Operate as a standalone service with a UI (O3)
-The system initially was just run through a terminal, and because there aren't too many options needed from the user, it would be beneficial to create a system that can work independantly with an easy to use interface. This would Work in a similar fashion to other CI tools, such as Travis. We would also plan to give users the control to hook into any of their repositories 
+The system initially was just run through a terminal, and because there aren't too many options needed from the user, it would be beneficial to create a system that can work independantly with an easy to use interface. This would Work in a similar fashion to other CI tools, such as Travis. We would also plan to give users the control to hook into any of their repositories.
 
 # System Requirements _(2 pages max)_
 
-### id 1
-In order to complete O1, we needed to have access to all parts of the system which we were unfortunately unable to receive before the end of the project. The implications of creating a complete system would mean that the computer running the system would have to be powerful enough to process all parts of the analysis within a reasonable amount of time in order to be of use to the programmer. Due to the heavy amount of processing required to complete the fault analysis against a large amount of other reports, the average user's computer that runs the system would have to be able to handle repeatedly running the analysis.
+### Section A : Data Processing
 
-### id 2
-Completing O2 required us to have enough parts of the system to be able to connect to GitHub using their API and get issues from their tracker. Since the biggest change to the existing system is the report data used, the requirements of running the system are similar to id 1. The biggest difference being that the resolution of the fault analysis isn't required as immediately as in id 1 because of the low frequency of new issues that are created in most projects.
+- **Feature 1:** Able to generate entity relationship rsf from codebase
+  - FR 1: Pass code through cdif2rsf to generate rsf
+  - FR 2: Clean up incorrect entity and relationships
+  - FR 3: Store in accessible data storage for next step to use
 
-### id 3
+- **Feature 2:**  Able to generate set of keywords from bug description
+  - FR 1: Compare each token to codebase to find valid functions
+  - FR 2: Expand initial token set by a factor of 3
+  - FR 3: Use NLP to determine question context 
+
+- **Feature 3:** Able to combine keywords and rsf into ranked outcomes
+  - FR 1: Run LSI on each token and generate search space for each
+  - FR 2: Expand the search space for each result in FR 1
+  - FR 3: Find similarities between the initial token expansion and the final
+    set of tokens
+  - FR 4: Apply ranking equation from research paper to come up with final
+    outcome
+
+### Section B : Front-End User Interface
+
+- **Feature 4:**  User is able to scan and mark a new repository for processing
+  - FR 1: Scan user's Github repos using Github's API
+  - FR 2: Allow the user to select ones they wish to run processing on
+  - FR 3: Remember which ones the user selected by storing on backend
+
+- **Feature 5:**  User is able to view the results of a new bug report's processing
+  - FR 1: Monitor output from backend endpoints showing new results for user's repos
+  - FR 2: When a new bug report is created, and the processing finishes, show
+    the output of that processing on a separate page
+  - FR 3: Allow the user to rerun processing on a specific bug report by
+    sending a request to backend
+
+- **Feature 6:**  User is able to login using their Github credentials
+  - FR 1: On first usage redirect user to Github's App authentication page
+  - FR 2: Ask backend to associate bug reports and repositories with this user
+  - FR 3: Redirect user to main UI
+
+### Section C : Back-End Runtime Processing
+
+- **Feature 7:** Support front-end operations
+  - FR 1: Allow registration using Github Auth
+  - FR 2: Allow retrieval of processing results for each bug report
+  - FR 3: Support re-running processing on a specific bug report
+  - FR 4: Create a API where the UI can fetch everything from
+
+- **Feature 8:** Manage the automation of Data Processing (F1, F2, and F3)
+  - FR 1: Automate RSF generation when a new repository is linked
+  - FR 2: Automate keyword generation when a new repository is linked
+  - FR 3: Continuously improve and modify RSF and keywords as code/bugs change
+
+- **Feature 9:** Handle processing and evaluation when a new bug report comes in
+  - FR 1: Monitor marked repositories for each registered user and trigger when new issue is filed
+  - FR 2: Run through automated ranking algorithm 
+  - FR 3: Store result for later retrieval
+  - FR 4: Be able to connect to a repository and fetch an issue when it is posted
+
+- **Feature 10:** Combine each element of data processing into the backend runtime
+  - FR 1: Combine entity generation into token generation
+  - FR 2: Combine FR1 with RSF processing all into one unit
+  - FR 3: Move all functionality to an exposed part of the API
+  - FR 4: Create all endpoints for data processing functionality
 
 # Development Strategy _(2 pages max)_
+
 Since this project had a lot of the main functionality already implemented, we did not have many choices over what development tools and languages to use. The majority of the project was written in Java, with some separate Python scripts used for data manipulation at some of the stages in the system. Including the development tools previously mentioned, the following were also used in the system: 
 
 ### Technologies
@@ -131,16 +188,23 @@ Since this project had a lot of the main functionality already implemented, we d
 
 # Discussion _(1.5 pages max)_
 
+### Threats to the validity of the results
+
+Due to the large amount of bug reports and the possibility of having reports without enough details, the results are not guaranteed to find where the fault occurs. The ranking used in the system is useful in mitigating incorrect results, but does not gurantee that any of the results will be useful in determining the cause of fault in the software. A lot of other methods used to minimize the threats to validity were already implemented in the project, but it was mentioned that using different algorithms would allow us to compare the accuracy of different methods.
+
+### Implications of the results
+
+One of the original goals of this project was to implement another algorithm for determining the cause of fault to then use to compare the validity of the results for both algorithms. The validity of the results is important for a system like this because of how flexible it is for testing on software projects. The system would be language agnostic and allow the user to be able to accurately detect specific points of faults in software projects that use multiple languages. This is much more useful than traditional tools used for detecting issues in software and would be applicable to any project, where those that have large projects and/or use multiple languages would benefit the most. This system would save software engineers lots of time and effort wasted on debugging issues with software systems that don't provide enough information about where a fault in the program occurs.
+
+### Limitations of the results
+
+The main limitation to this project is the complexity of being able to detect a fault based on reports alone. When developing, users have many methods of getting feedback through logs and error detection that are not available to our system. The best way to remove this limitation would be to get more details from failure reports, but unfortunately there are not many alternatives that offer nearly as many reports as BugZilla.
+
 # Conclusions _(1 page max)_
 
-### Late Start
+Unfortunately, for our project we had some communication problems for a large portion of the year. We ended up getting a late start to the project and had to re-purpose the project after the second milestone. Due to our late start and a couple missing scripts, we did not have access to all parts of the system needed to create a complete system and did not have enough time to create a standalone service with a UI. The implications of creating a complete system would mean that the computer running the system would have to be powerful enough to process all parts of the analysis within a reasonable amount of time in order to be of use to the programmer. Based on our testing with the components we had, we believe that this would be achievable if given access to the remaining parts of the program. We were able to refactor the code and greatly improve the structure and readability. The main method contained too much of the logic of the system, so modularizing the code and adding comments made it much easier to understand for others who will look at the code.
 
-- Second iteration of project
-- Had to re-purpose project after second milestone
-
-### Communication problems 
-
-- Lack of communication from the supervisor for long periods of time
+Completing O2 added the ability to connect to GitHub using their API and get issues from their tracker. Since the biggest change to the existing system is the report data used, the main structure of the system remains the same while allowing it to be used in another useful domain. Using this system in GitHub allows developers to easily discover faults in their applications. The system is set to be run whenever an issue was added by a user and would notify the repo owner.
 
 # Future Work and Lessons Learnt _(1 page max)_
 
