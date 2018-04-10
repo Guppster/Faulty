@@ -64,20 +64,26 @@ A database entry for each bug report used for the analysis. Each bug report cont
 ### Token Expansion
 Tokens extracted from the bug report are expanded to find other similar tokens. Token expansion includes tokens that are referenced by the original token set.
 
+### Clique
+- A collection of tokens that are referenced the most within the expanded set of tokens
+
+### Cluster
+- A group of relationships that are closely related to each other
+
 # Development Objectives _(0.75 page max)_
 
 ### Develop a complete system
-- Combine scripts and java code into a easy to access complete system
+- Combine scripts and Java code into an easy to access complete system
 - System should be able to handle new codebases and improve with new bug reports
 
-### Be able to integrate with a Github based workflow
-- Fetch new issues are they are created in a repo and process them
+### Be able to integrate with a GitHub based workflow
+- Fetch new issues as they are created in a repo and process them
 - Push results back to the issue page so the developers can get a head start
-- Allow users to authenticate using Github
+- Allow users to authenticate using GitHub
 
 ### Operate as a standalone service with a UI
-- Work in a similar fashion to other CI tools (like travis, etc)
-- Allow users control to hook into any of their repositories 
+- Work in a similar fashion to other CI tools (like Travis, etc)
+- Give users the control to hook into any of their repositories 
 
 # System Requirements _(2 pages max)_
 
@@ -104,8 +110,8 @@ Tokens extracted from the bug report are expanded to find other similar tokens. 
 - Documented and made more readable for easier integration 
 
 ### API
-- Able to monitor a Github repo for events
-- Detect new issues and add into a mongo database
+- Able to monitor a GitHub repo for events
+- Detect new issues and add into a Mongo database
 - Able to start and end deployments on Pull Requests
 
 # Discussion _(1.5 pages max)_
@@ -117,14 +123,14 @@ Tokens extracted from the bug report are expanded to find other similar tokens. 
 - Had to re-purpose project after second milestone
 
 ### Communication problems 
-- lack of communication for the supervisor long periods of time
+- Lack of communication from the supervisor for long periods of time
 
 # Future Work and Lessons Learnt _(1 page max)_
 
 ### Future work
 - Develop software to process issues incrementally into the BugLocalization
 - Integrate the BugLocalization project as part of the API and utilize its full power
-- Make a web UI similar to travis to display results 
+- Make a web UI similar to Travis to display results 
 
 ### Lessons learnt
 - Develop consistent communication plan with stakeholders
