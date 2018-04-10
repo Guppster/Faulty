@@ -15,7 +15,6 @@
 \rhead{ Singh, Gurpreet.  Bartlett, Paul. }
 \lhead{\thepage\ of \pageref{LastPage}}
 
-
 \usepackage{chemformula} % Formula subscripts using \ch{}
 \usepackage[T1]{fontenc} % Use modern font encodings
 \usepackage[utf8]{inputenc} % Required for inputting international characters
@@ -26,6 +25,9 @@
     pdfauthor={},     % author
     pdfcreator={},   % creator of the document
 }
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% If issues arise when submitting your manuscript, you may want to
@@ -141,11 +143,13 @@ viverra ligula. Pellentesque sed mollis nibh, at ultricies nisi.Quisque
 id velit suscipit ipsum auctor egestas egestas sit amet dui. Curabitur
 at sem nunc. Nunc non ultrices ex, et egestas odio. \end{abstract} 
 
+\hypertarget{introduction-1.5-pages-max}{%
 \section{\texorpdfstring{Introduction \emph{(1.5 pages
-max)}}{Introduction (1.5 pages max)}}\label{introduction-1.5-pages-max}
+max)}}{Introduction (1.5 pages max)}}\label{introduction-1.5-pages-max}}
 
+\hypertarget{background-and-related-work-2-pages-max}{%
 \section{\texorpdfstring{Background and Related Work \emph{(2 pages
-max)}}{Background and Related Work (2 pages max)}}\label{background-and-related-work-2-pages-max}
+max)}}{Background and Related Work (2 pages max)}}\label{background-and-related-work-2-pages-max}}
 
 This project was conceived from research that Professor Kontogainnis had
 completed with past students regarding the task of determining faults in
@@ -160,30 +164,35 @@ little documentation. Most of the work was done in intermediate steps
 and did not fit well together as a system because too much user
 intervention was required between steps.
 
+\hypertarget{concepts-terms-definitions-equations-1-page-max}{%
 \section{\texorpdfstring{Concepts, Terms, Definitions, Equations
 \emph{(1 page
-max)}}{Concepts, Terms, Definitions, Equations (1 page max)}}\label{concepts-terms-definitions-equations-1-page-max}
+max)}}{Concepts, Terms, Definitions, Equations (1 page max)}}\label{concepts-terms-definitions-equations-1-page-max}}
 
-\subsubsection{RSF}\label{rsf}
+\hypertarget{rsf}{%
+\subsubsection{RSF}\label{rsf}}
 
 An RSF is a map of relationships betweens tokens within a codebase,
 where a token is a keyword in the codebase such as a method. It is
 generated using preprocessing scripts, and the result allows us to
 verify tokens inside of bug reports.
 
-\subsubsection{Bug Report}\label{bug-report}
+\hypertarget{bug-report}{%
+\subsubsection{Bug Report}\label{bug-report}}
 
 A database entry for each bug report used for the analysis. Each bug
 report contains a String field containing what a user wrote inside their
 bug report.
 
-\subsubsection{Token Expansion}\label{token-expansion}
+\hypertarget{token-expansion}{%
+\subsubsection{Token Expansion}\label{token-expansion}}
 
 Tokens extracted from the bug report are expanded to find other similar
 tokens. Token expansion includes tokens that are referenced by the
 original token set.
 
-\subsubsection{Clique}\label{clique}
+\hypertarget{clique}{%
+\subsubsection{Clique}\label{clique}}
 
 \begin{itemize}
 \tightlist
@@ -192,7 +201,8 @@ original token set.
   expanded set of tokens
 \end{itemize}
 
-\subsubsection{Cluster}\label{cluster}
+\hypertarget{cluster}{%
+\subsubsection{Cluster}\label{cluster}}
 
 \begin{itemize}
 \tightlist
@@ -200,58 +210,68 @@ original token set.
   A group of relationships that are closely related to each other
 \end{itemize}
 
+\hypertarget{development-objectives-0.75-page-max}{%
 \section{\texorpdfstring{Development Objectives \emph{(0.75 page
-max)}}{Development Objectives (0.75 page max)}}\label{development-objectives-0.75-page-max}
+max)}}{Development Objectives (0.75 page max)}}\label{development-objectives-0.75-page-max}}
 
-\subsubsection{Develop a complete
-system}\label{develop-a-complete-system}
+\hypertarget{develop-a-complete-system-o1}{%
+\subsubsection{Develop a complete system
+(O1)}\label{develop-a-complete-system-o1}}
 
-\begin{itemize}
-\tightlist
-\item
-  Combine scripts and Java code into an easy to access complete system
-\item
-  System should be able to handle new codebases and improve with new bug
-  reports
-\end{itemize}
+Since they are so many individual parts to the system required to run
+the system, we wanted to combine scripts and Java code into an easy to
+access complete system. Considering there were still some Python scripts
+we did not get access to by the end of the project, it would be very
+beneficial to have a complete system that is able to handle new
+codebases and improve with new bug reports.
 
-\subsubsection{Be able to integrate with a GitHub based
-workflow}\label{be-able-to-integrate-with-a-github-based-workflow}
+\hypertarget{be-able-to-integrate-with-a-github-based-workflow-o2}{%
+\subsubsection{Be able to integrate with a GitHub based workflow
+(O2)}\label{be-able-to-integrate-with-a-github-based-workflow-o2}}
 
-\begin{itemize}
-\tightlist
-\item
-  Fetch new issues as they are created in a repo and process them
-\item
-  Push results back to the issue page so the developers can get a head
-  start
-\item
-  Allow users to authenticate using GitHub
-\end{itemize}
+We saw a great opportunity to integrate this system into GitHub's
+system. Initially, the system was set up to read reports from BugZilla,
+but we wanted to add the ability to integrate the system with GitHib's
+issue tracker. This would entail fetching new issues as they are created
+in a repo and processing them, Pushing results back to the issue page so
+the developers can get a head start, and allowing users to authenticate
+using GitHub.
 
-\subsubsection{Operate as a standalone service with a
-UI}\label{operate-as-a-standalone-service-with-a-ui}
+\hypertarget{operate-as-a-standalone-service-with-a-ui-o3}{%
+\subsubsection{Operate as a standalone service with a UI
+(O3)}\label{operate-as-a-standalone-service-with-a-ui-o3}}
 
-\begin{itemize}
-\tightlist
-\item
-  Work in a similar fashion to other CI tools (like Travis, etc)
-\item
-  Give users the control to hook into any of their repositories
-\end{itemize}
+The system initially was just run through a terminal, and because there
+aren't too many options needed from the user, it would be beneficial to
+create a system that can work independantly with an easy to use
+interface. This would Work in a similar fashion to other CI tools, such
+as Travis. We would also plan to give users the control to hook into any
+of their repositories
 
+\hypertarget{system-requirements-2-pages-max}{%
 \section{\texorpdfstring{System Requirements \emph{(2 pages
-max)}}{System Requirements (2 pages max)}}\label{system-requirements-2-pages-max}
+max)}}{System Requirements (2 pages max)}}\label{system-requirements-2-pages-max}}
 
+\hypertarget{development-strategy-2-pages-max}{%
 \section{\texorpdfstring{Development Strategy \emph{(2 pages
-max)}}{Development Strategy (2 pages max)}}\label{development-strategy-2-pages-max}
+max)}}{Development Strategy (2 pages max)}}\label{development-strategy-2-pages-max}}
 
-\subsubsection{Technologies}\label{technologies}
+Since this project had a lot of the main functionality already
+implemented, we did not have many choices over what development tools
+and languages to use. The majority of the project was written in Java,
+with some separate Python scripts used for data manipulation at some of
+the stages in the system. Including the development tools previously
+mentioned, the following were also used in the system:
+
+\hypertarget{technologies}{%
+\subsubsection{Technologies}\label{technologies}}
 
 \begin{itemize}
 \tightlist
 \item
   Kotlin
+\item
+  Python
 \item
   Java
 \item
@@ -262,7 +282,8 @@ max)}}{Development Strategy (2 pages max)}}\label{development-strategy-2-pages-m
   Github Webhooks
 \end{itemize}
 
-\subsubsection{Tools}\label{tools}
+\hypertarget{tools}{%
+\subsubsection{Tools}\label{tools}}
 
 \begin{itemize}
 \tightlist
@@ -276,10 +297,21 @@ max)}}{Development Strategy (2 pages max)}}\label{development-strategy-2-pages-m
   ngrok
 \end{itemize}
 
-\section{\texorpdfstring{Results \emph{(10 pages
-max)}}{Results (10 pages max)}}\label{results-10-pages-max}
+\hypertarget{datasets}{%
+\subsection{Datasets}\label{datasets}}
 
-\subsubsection{BugLocalization Project}\label{buglocalization-project}
+\begin{itemize}
+\tightlist
+\item
+  BugZilla reports
+\end{itemize}
+
+\hypertarget{results-10-pages-max}{%
+\section{\texorpdfstring{Results \emph{(10 pages
+max)}}{Results (10 pages max)}}\label{results-10-pages-max}}
+
+\hypertarget{buglocalization-project}{%
+\subsubsection{BugLocalization Project}\label{buglocalization-project}}
 
 \begin{itemize}
 \tightlist
@@ -291,25 +323,29 @@ max)}}{Results (10 pages max)}}\label{results-10-pages-max}
   Documented and made more readable for easier integration
 \end{itemize}
 
-\subsubsection{API}\label{api}
+\hypertarget{api}{%
+\subsubsection{API}\label{api}}
 
 \begin{itemize}
 \tightlist
 \item
-  Able to monitor a Github repo for events
+  Able to monitor a GitHub repo for events
 \item
-  Detect new issues and add into a mongo database
+  Detect new issues and add into a Mongo database
 \item
   Able to start and end deployments on Pull Requests
 \end{itemize}
 
+\hypertarget{discussion-1.5-pages-max}{%
 \section{\texorpdfstring{Discussion \emph{(1.5 pages
-max)}}{Discussion (1.5 pages max)}}\label{discussion-1.5-pages-max}
+max)}}{Discussion (1.5 pages max)}}\label{discussion-1.5-pages-max}}
 
+\hypertarget{conclusions-1-page-max}{%
 \section{\texorpdfstring{Conclusions \emph{(1 page
-max)}}{Conclusions (1 page max)}}\label{conclusions-1-page-max}
+max)}}{Conclusions (1 page max)}}\label{conclusions-1-page-max}}
 
-\subsubsection{Late Start}\label{late-start}
+\hypertarget{late-start}{%
+\subsubsection{Late Start}\label{late-start}}
 
 \begin{itemize}
 \tightlist
@@ -319,18 +355,21 @@ max)}}{Conclusions (1 page max)}}\label{conclusions-1-page-max}
   Had to re-purpose project after second milestone
 \end{itemize}
 
-\subsubsection{Communication problems}\label{communication-problems}
+\hypertarget{communication-problems}{%
+\subsubsection{Communication problems}\label{communication-problems}}
 
 \begin{itemize}
 \tightlist
 \item
-  lack of communication for the supervisor long periods of time
+  Lack of communication from the supervisor for long periods of time
 \end{itemize}
 
+\hypertarget{future-work-and-lessons-learnt-1-page-max}{%
 \section{\texorpdfstring{Future Work and Lessons Learnt \emph{(1 page
-max)}}{Future Work and Lessons Learnt (1 page max)}}\label{future-work-and-lessons-learnt-1-page-max}
+max)}}{Future Work and Lessons Learnt (1 page max)}}\label{future-work-and-lessons-learnt-1-page-max}}
 
-\subsubsection{Future work}\label{future-work}
+\hypertarget{future-work}{%
+\subsubsection{Future work}\label{future-work}}
 
 \begin{itemize}
 \tightlist
@@ -341,10 +380,11 @@ max)}}{Future Work and Lessons Learnt (1 page max)}}\label{future-work-and-lesso
   Integrate the BugLocalization project as part of the API and utilize
   its full power
 \item
-  Make a web UI similar to travis to display results
+  Make a web UI similar to Travis to display results
 \end{itemize}
 
-\subsubsection{Lessons learnt}\label{lessons-learnt}
+\hypertarget{lessons-learnt}{%
+\subsubsection{Lessons learnt}\label{lessons-learnt}}
 
 \begin{itemize}
 \tightlist

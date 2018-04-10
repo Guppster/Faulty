@@ -15,7 +15,6 @@
 \rhead{$for(author)$ $author.lastname$, $author.firstname$. $endfor$}
 \lhead{\thepage\ of \pageref{LastPage}}
 
-
 \usepackage{chemformula} % Formula subscripts using \ch{}
 \usepackage[T1]{fontenc} % Use modern font encodings
 \usepackage[utf8]{inputenc} % Required for inputting international characters
@@ -26,6 +25,9 @@
     pdfauthor={$author.name$},     % author
     pdfcreator={$author.name$},   % creator of the document
 }
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% If issues arise when submitting your manuscript, you may want to
