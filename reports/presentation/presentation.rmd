@@ -79,6 +79,11 @@ Allow developers to make use of the bug localization results effectively.
 knitr::include_graphics("../images/BugLocalizationFlow.png")
 ```
 
+## Architecture of BugLocalization {.smaller}
+```{r, out.width = "450px", echo=FALSE}
+knitr::include_graphics("../images/FaultPhases.png")
+```
+
 ## Development Objectives {.smaller}
 
 ### Develop a complete system
