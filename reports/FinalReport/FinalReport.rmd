@@ -30,8 +30,25 @@ author:
 
 logo: "../images/uwo.jpg"
 
-abstract-bold: Lorem ipsum sodales, accumsan neque eu, placerat purus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla id varius metus, id vestibulum purus. Nullam malesuada urna purus, quis euismod velit tristique et. Fusce auctor laoreet arcu ac maximus. Duis ultricies malesuada dui id pharetra. Donec tempus semper enim, in interdum ante pharetra sed. Vivamus vel accumsan metus. Vivamus eu enim est. Duis ac dolor a quam lacinia interdum in ut sem. Ut ipsum orci, dignissim vel ante eget, blandit sollicitudin dolor.
-abstract:  Sed eu orci dolor sit amet, consectetur adipiscing elit. Duis dapibus nisl vitae tempor placerat. Duis feugiat odio vitae quam pellentesque, ac semper ex sagittis. Nunc id egestas tortor. Morbi nibh tortor, suscipit vel libero quis, placerat molestie nulla. Nullam pellentesque ex ac viverra lobortis. Donec hendrerit nibh nisi, a bibendum urna efficitur ut. Cras venenatis sem magna, vel dignissim augue convallis a. Proin sapien justo, viverra ac enim sit amet, cursus aliquet tellus. Nulla at lacus magna. Nullam sit amet dui convallis, interdum felis eu, viverra ligula. Pellentesque sed mollis nibh, at ultricies nisi.Quisque id velit suscipit ipsum auctor egestas egestas sit amet dui. Curabitur at sem nunc. Nunc non ultrices ex, et egestas odio.  
+abstract-bold: Lorem ipsum sodales, accumsan neque eu, placerat purus. Interdum
+et malesuada fames ac ante ipsum primis in faucibus. Nulla id varius metus, id
+vestibulum purus. Nullam malesuada urna purus, quis euismod velit tristique et.
+Fusce auctor laoreet arcu ac maximus. Duis ultricies malesuada dui id pharetra.
+Donec tempus semper enim, in interdum ante pharetra sed. Vivamus vel accumsan
+metus. Vivamus eu enim est. Duis ac dolor a quam lacinia interdum in ut sem. Ut
+ipsum orci, dignissim vel ante eget, blandit sollicitudin dolor.
+
+abstract:  Sed eu orci dolor sit amet, consectetur adipiscing elit. Duis
+dapibus nisl vitae tempor placerat. Duis feugiat odio vitae quam pellentesque,
+ac semper ex sagittis. Nunc id egestas tortor. Morbi nibh tortor, suscipit vel
+libero quis, placerat molestie nulla. Nullam pellentesque ex ac viverra
+lobortis. Donec hendrerit nibh nisi, a bibendum urna efficitur ut. Cras
+venenatis sem magna, vel dignissim augue convallis a. Proin sapien justo,
+viverra ac enim sit amet, cursus aliquet tellus. Nulla at lacus magna. Nullam
+sit amet dui convallis, interdum felis eu, viverra ligula. Pellentesque sed
+mollis nibh, at ultricies nisi.Quisque id velit suscipit ipsum auctor egestas
+egestas sit amet dui. Curabitur at sem nunc. Nunc non ultrices ex, et egestas
+odio.  
 
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 ---
@@ -56,13 +73,18 @@ required between steps.
 # Concepts, Terms, Definitions, Equations _(1 page max)_
 
 ### RSF
-An RSF is a map of relationships betweens tokens within a codebase, where a token is a keyword in the codebase such as a method. It is generated using preprocessing scripts, and the result allows us to verify tokens inside of bug reports.
+An RSF is a map of relationships betweens tokens within a codebase, where
+a token is a keyword in the codebase such as a method. It is generated using
+preprocessing scripts, and the result allows us to verify tokens inside of bug
+reports.
 
 ### Bug Report
-A database entry for each bug report used for the analysis. Each bug report contains a String field containing what a user wrote inside their bug report.
+A database entry for each bug report used for the analysis. Each bug report
+contains a String field containing what a user wrote inside their bug report.
 
 ### Token Expansion
-Tokens extracted from the bug report are expanded to find other similar tokens. Token expansion includes tokens that are referenced by the original token set.
+Tokens extracted from the bug report are expanded to find other similar tokens.
+Token expansion includes tokens that are referenced by the original token set.
 
 ### Clique
 
@@ -75,13 +97,27 @@ A group of relationships that are closely related to each other.
 # Development Objectives _(0.75 page max)_
 
 ### Develop a complete system (O1)
-Since they are so many individual parts to the system required to run the system, we wanted to combine scripts and Java code into an easy to access complete system. Considering there were still some Python scripts we did not get access to by the end of the project, it would be very beneficial to have a complete system that is able to handle new codebases and improve with new bug reports.
+Since they are so many individual parts to the system required to run the
+system, we wanted to combine scripts and Java code into an easy to access
+complete system. Considering there were still some Python scripts we did not
+get access to by the end of the project, it would be very beneficial to have
+a complete system that is able to handle new codebases and improve with new bug
+reports.
 
 ### Be able to integrate with a GitHub based workflow (O2)
-We saw a great opportunity to integrate this system into GitHub's system. Initially, the system was set up to read reports from BugZilla, but we wanted to add the ability to integrate the system with GitHib's issue tracker. This would entail fetching new issues as they are created in a repo and processing them, pushing results back to the issue page so the developers can get a head start, and allowing users to authenticate using GitHub.
+We saw a great opportunity to integrate this system into GitHub's system.
+Initially, the system was set up to read reports from BugZilla, but we wanted
+to add the ability to integrate the system with GitHib's issue tracker. This
+would entail fetching new issues as they are created in a repo and processing
+them, pushing results back to the issue page so the developers can get a head
+start, and allowing users to authenticate using GitHub.
 
 ### Operate as a standalone service with a UI (O3)
-The system initially was just run through a terminal, and because there aren't too many options needed from the user, it would be beneficial to create a system that can work independantly with an easy to use interface. This would Work in a similar fashion to other CI tools, such as Travis. We would also plan to give users the control to hook into any of their repositories.
+The system initially was just run through a terminal, and because there aren't
+too many options needed from the user, it would be beneficial to create
+a system that can work independantly with an easy to use interface. This would
+Work in a similar fashion to other CI tools, such as Travis. We would also plan
+to give users the control to hook into any of their repositories.
 
 # System Requirements _(2 pages max)_
 
@@ -151,7 +187,12 @@ The system initially was just run through a terminal, and because there aren't t
 
 # Development Strategy _(2 pages max)_
 
-Since this project had a lot of the main functionality already implemented, we did not have many choices over what development tools and languages to use. The majority of the project was written in Java, with some separate Python scripts used for data manipulation at some of the stages in the system. Including the development tools previously mentioned, the following were also used in the system: 
+Since this project had a lot of the main functionality already implemented, we
+did not have many choices over what development tools and languages to use. The
+majority of the project was written in Java, with some separate Python scripts
+used for data manipulation at some of the stages in the system. Including the
+development tools previously mentioned, the following were also used in the
+system: 
 
 ### Technologies
 
@@ -211,7 +252,8 @@ Completing O2 added the ability to connect to GitHub using their API and get iss
 ### Future work
 
 - Develop software to process issues incrementally into the BugLocalization
-- Integrate the BugLocalization project as part of the API and utilize its full power
+- Integrate the BugLocalization project as part of the API and utilize its full
+  power
 - Make a web UI similar to Travis to display results 
 
 ### Lessons learnt
