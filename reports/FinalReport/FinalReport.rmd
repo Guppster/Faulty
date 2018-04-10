@@ -65,10 +65,19 @@ A database entry for each bug report used for the analysis. Each bug report cont
 Tokens extracted from the bug report are expanded to find other similar tokens. Token expansion includes tokens that are referenced by the original token set.
 
 ### Clique
+<<<<<<< HEAD
 A collection of tokens that are referenced the most within the expanded set of tokens.
 
 ### Cluster
 A group of relationships that are closely related to each other.
+=======
+
+- A collection of tokens that are referenced the most within the expanded set of tokens
+
+### Cluster
+
+- A group of relationships that are closely related to each other
+>>>>>>> 70037810d221e2da520eaaa1b337d70e8ec1baac
 
 # Development Objectives _(0.75 page max)_
 
@@ -95,6 +104,7 @@ Completing O2 required us to have enough parts of the system to be able to conne
 Since this project had a lot of the main functionality already implemented, we did not have many choices over what development tools and languages to use. The majority of the project was written in Java, with some separate Python scripts used for data manipulation at some of the stages in the system. Including the development tools previously mentioned, the following were also used in the system: 
 
 ### Technologies
+
 - Kotlin
 - Python
 - Java
@@ -103,6 +113,7 @@ Since this project had a lot of the main functionality already implemented, we d
 - Github Webhooks
 
 ### Tools
+
 - Intellij Idea
 - NeoVim
 - Robo3T
@@ -114,11 +125,13 @@ Since this project had a lot of the main functionality already implemented, we d
 # Results _(10 pages max)_
 
 ### BugLocalization Project
+
 - Restructured and cleaned up codebase
 - Reduced very large codebase to 10 files 
 - Documented and made more readable for easier integration 
 
 ### API
+
 - Able to monitor a GitHub repo for events
 - Detect new issues and add into a Mongo database
 - Able to start and end deployments on Pull Requests
@@ -128,18 +141,22 @@ Since this project had a lot of the main functionality already implemented, we d
 # Conclusions _(1 page max)_
 
 ### Late Start
+
 - Second iteration of project
 - Had to re-purpose project after second milestone
 
 ### Communication problems 
+
 - Lack of communication from the supervisor for long periods of time
 
 # Future Work and Lessons Learnt _(1 page max)_
 
 ### Future work
+
 - Develop software to process issues incrementally into the BugLocalization
 - Integrate the BugLocalization project as part of the API and utilize its full power
 - Make a web UI similar to Travis to display results 
 
 ### Lessons learnt
+
 - Develop consistent communication plan with stakeholders
