@@ -147,23 +147,6 @@ at sem nunc. Nunc non ultrices ex, et egestas odio. \end{abstract}
 \section{\texorpdfstring{Introduction \emph{(1.5 pages
 max)}}{Introduction (1.5 pages max)}}\label{introduction-1.5-pages-max}}
 
-\hypertarget{background-and-related-work-2-pages-max}{%
-\section{\texorpdfstring{Background and Related Work \emph{(2 pages
-max)}}{Background and Related Work (2 pages max)}}\label{background-and-related-work-2-pages-max}}
-
-This project was conceived from research that Professor Kontogainnis had
-completed with past students regarding the task of determining faults in
-a large codebase using only past bug reports. Past students had
-experimented with multiple algorithms for processing large amounts of
-bug reports in order to come up with an index of files that are most
-likely to have a new bug within them.
-
-The original system consisted of a collection of scripts written in
-Java, Python and Shell. The scripts were fairly distributed and had very
-little documentation. Most of the work was done in intermediate steps
-and did not fit well together as a system because too much user
-intervention was required between steps.
-
 \hypertarget{concepts-terms-definitions-equations-1-page-max}{%
 \section{\texorpdfstring{Concepts, Terms, Definitions, Equations
 \emph{(1 page
@@ -194,21 +177,68 @@ original token set.
 \hypertarget{clique}{%
 \subsubsection{Clique}\label{clique}}
 
-\begin{itemize}
-\tightlist
-\item
-  A collection of tokens that are referenced the most within the
-  expanded set of tokens
-\end{itemize}
+A collection of tokens that are referenced the most within the expanded
+set of tokens
 
 \hypertarget{cluster}{%
 \subsubsection{Cluster}\label{cluster}}
 
-\begin{itemize}
-\tightlist
-\item
-  A group of relationships that are closely related to each other
-\end{itemize}
+A group of relationships that are closely related to each other
+
+\hypertarget{background-and-related-work-2-pages-max}{%
+\section{\texorpdfstring{Background and Related Work \emph{(2 pages
+max)}}{Background and Related Work (2 pages max)}}\label{background-and-related-work-2-pages-max}}
+
+The main purpose of this project is to assist in locating faults so
+developers can isolate errors quicker. There are three main categories
+of fault localization: static-analysis/test-case based approach, machine
+learning based approach, and a type based approach. The method that we
+are expanding upon falls into the first category with an approach that
+heavily relies on preforming static analysis on the code and bug texts.
+
+This project was conceived from research that Professor Kontogainnis had
+completed with past students regarding the task of determining faults in
+a large codebase using only past bug reports. Past students had
+experimented with multiple algorithms for processing large amounts of
+bug reports in order to come up with an index of files that are most
+likely to have a new bug within them.
+
+The project operated in many phases. Each one containing one very
+specific task. The first phase involved extracting bug reports from a
+repository and parsing them through a reader into an object model that
+allowed easier processing. The second phase handled pulling the source
+code of the project and generating tokens. Tokens can be entities in the
+codebase but for our specific use they are method names that are later
+lifted up to filenames. A map of these tokens is created and then using
+the results from phase 1 and 2, the next piece of software is ready to
+make a connection between these two datasets. In phase 3 each of the
+tokens extracted from the bug report are verified and expanded to
+generate a set of tokens that include all relatives to each token. A
+token's relative is defined as a token that makes a call to or from the
+original token.
+
+The first three phases mostly involved preprocessing different datasets
+into a form that would be ideal for making a conclusion. At this point
+we have a large set of entities that we suspect are vaguely related to
+the bug report we want to process. Phase 4 is where we begin making
+conclusions on the data. The software chooses between two algorithms for
+determining the score that will indicate the faulty files. If the amount
+of files associated with the bug are less than 15\% of the total system
+files, we choose the simpler algorithm and find the score by determining
+which files have the most outward connections to the codebase. If the
+bug effects more than 15\% of total files, we generate clusters of
+related entities using our relationship map produced in phase 2 and then
+for each cluster we check how connected it is to the most important
+files related to our bug. The cluster that is most connected has the
+highest chance of containing the bug.
+
+The original system consisted of a collection of scripts written in
+Java, Python and Shell. The scripts were fairly distributed and had very
+little documentation. Most of the work was done in intermediate steps
+and did not fit well together as a system because too much user
+intervention was required between steps.
+
+\includegraphics[width=500px]{../images/FaultPhases}
 
 \hypertarget{development-objectives-0.75-page-max}{%
 \section{\texorpdfstring{Development Objectives \emph{(0.75 page

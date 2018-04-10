@@ -31,44 +31,29 @@ author:
 logo: "../images/uwo.jpg"
 
 abstract-bold: Lorem ipsum sodales, accumsan neque eu, placerat purus. Interdum
-et malesuada fames ac ante ipsum primis in faucibus. Nulla id varius metus, id
-vestibulum purus. Nullam malesuada urna purus, quis euismod velit tristique et.
-Fusce auctor laoreet arcu ac maximus. Duis ultricies malesuada dui id pharetra.
-Donec tempus semper enim, in interdum ante pharetra sed. Vivamus vel accumsan
-metus. Vivamus eu enim est. Duis ac dolor a quam lacinia interdum in ut sem. Ut
-ipsum orci, dignissim vel ante eget, blandit sollicitudin dolor.
+    et malesuada fames ac ante ipsum primis in faucibus. Nulla id varius metus, id
+    vestibulum purus. Nullam malesuada urna purus, quis euismod velit tristique et.
+    Fusce auctor laoreet arcu ac maximus. Duis ultricies malesuada dui id pharetra.
+    Donec tempus semper enim, in interdum ante pharetra sed. Vivamus vel accumsan
+    metus. Vivamus eu enim est. Duis ac dolor a quam lacinia interdum in ut sem. Ut
+    ipsum orci, dignissim vel ante eget, blandit sollicitudin dolor.
 
 abstract:  Sed eu orci dolor sit amet, consectetur adipiscing elit. Duis
-dapibus nisl vitae tempor placerat. Duis feugiat odio vitae quam pellentesque,
-ac semper ex sagittis. Nunc id egestas tortor. Morbi nibh tortor, suscipit vel
-libero quis, placerat molestie nulla. Nullam pellentesque ex ac viverra
-lobortis. Donec hendrerit nibh nisi, a bibendum urna efficitur ut. Cras
-venenatis sem magna, vel dignissim augue convallis a. Proin sapien justo,
-viverra ac enim sit amet, cursus aliquet tellus. Nulla at lacus magna. Nullam
-sit amet dui convallis, interdum felis eu, viverra ligula. Pellentesque sed
-mollis nibh, at ultricies nisi.Quisque id velit suscipit ipsum auctor egestas
-egestas sit amet dui. Curabitur at sem nunc. Nunc non ultrices ex, et egestas
-odio.  
+    dapibus nisl vitae tempor placerat. Duis feugiat odio vitae quam pellentesque,
+    ac semper ex sagittis. Nunc id egestas tortor. Morbi nibh tortor, suscipit vel
+    libero quis, placerat molestie nulla. Nullam pellentesque ex ac viverra
+    lobortis. Donec hendrerit nibh nisi, a bibendum urna efficitur ut. Cras
+    venenatis sem magna, vel dignissim augue convallis a. Proin sapien justo,
+    viverra ac enim sit amet, cursus aliquet tellus. Nulla at lacus magna. Nullam
+    sit amet dui convallis, interdum felis eu, viverra ligula. Pellentesque sed
+    mollis nibh, at ultricies nisi.Quisque id velit suscipit ipsum auctor egestas
+    egestas sit amet dui. Curabitur at sem nunc. Nunc non ultrices ex, et egestas
+    odio.  
 
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 ---
 
 # Introduction _(1.5 pages max)_
-
-# Background and Related Work _(2 pages max)_
-
-This project was conceived from research that Professor Kontogainnis had
-completed with past students regarding the task of determining faults in
-a large codebase using only past bug reports. Past students had experimented
-with multiple algorithms for processing large amounts of bug reports in order
-to come up with an index of files that are most likely to have a new bug
-within them. 
-
-The original system consisted of a collection of scripts written in Java,
-Python and Shell. The scripts were fairly distributed and had very little
-documentation. Most of the work was done in intermediate steps and did
-not fit well together as a system because too much user intervention was
-required between steps.
 
 # Concepts, Terms, Definitions, Equations _(1 page max)_
 
@@ -88,11 +73,66 @@ Token expansion includes tokens that are referenced by the original token set.
 
 ### Clique
 
-A collection of tokens that are referenced the most within the expanded set of tokens.
+A collection of tokens that are referenced the most within the expanded set of tokens
 
 ### Cluster
+A group of relationships that are closely related to each other
 
-A group of relationships that are closely related to each other.
+# Background and Related Work
+
+The main purpose of this project is to assist in locating faults so developers
+can isolate errors quicker. There are three main categories of fault localization:
+static-analysis/test-case based approach, machine learning based approach, and
+a type based approach. The method that we are expanding upon falls into the first
+category with an approach that heavily relies on preforming static analysis on the 
+code and bug texts.
+
+
+This project was conceived from research that Professor Kontogainnis had
+completed with past students regarding the task of determining faults in
+a large codebase using only past bug reports. Past students had experimented
+with multiple algorithms for processing large amounts of bug reports in order
+to come up with an index of files that are most likely to have a new bug
+within them. 
+
+
+The project operated in many phases. Each one containing one very specific
+task. The first phase involved extracting bug reports from a repository and
+parsing them through a reader into an object model that allowed easier
+processing. The second phase handled pulling the source code of the project and
+generating tokens. Tokens can be entities in the codebase but for our specific
+use they are method names that are later lifted up to filenames. A map of these
+tokens is created and then using the results from phase 1 and 2, the next piece
+of software is ready to make a connection between these two datasets. In phase
+3 each of the tokens extracted from the bug report are verified and expanded to
+generate a set of tokens that include all relatives to each token. A token's
+relative is defined as a token that makes a call to or from the original token.
+
+
+The first three phases mostly involved preprocessing different datasets into
+a form that would be ideal for making a conclusion. At this point we have
+a large set of entities that we suspect are vaguely related to the bug report
+we want to process. Phase 4 is where we begin making conclusions on the data.
+The software chooses between two algorithms for determining the score that will
+indicate the faulty files. If the amount of files associated with the bug are
+less than 15% of the total system files, we choose the simpler algorithm and
+find the score by determining which files have the most outward connections to
+the codebase. If the bug effects more than 15% of total files, we generate
+clusters of related entities using our relationship map produced in phase 2 and
+then for each cluster we check how connected it is to the most important files
+related to our bug. The cluster that is most connected has the highest chance
+of containing the bug.
+
+
+The original system consisted of a collection of scripts written in Java,
+Python and Shell. The scripts were fairly distributed and had very little
+documentation. Most of the work was done in intermediate steps and did
+not fit well together as a system because too much user intervention was
+required between steps.
+
+```{r, out.width = "500px", echo=FALSE}
+knitr::include_graphics("../images/FaultPhases.png")
+```
 
 # Development Objectives _(0.75 page max)_
 
