@@ -53,7 +53,50 @@ abstract:  Sed eu orci dolor sit amet, consectetur adipiscing elit. Duis
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 ---
 
-# Introduction _(1.5 pages max)_
+# Introduction 
+
+### Problem description
+
+Most professional developers and software engineers have run into a situation
+where they are presented with a bug, issue, or ticket and do not know where to
+begin looking for the cause of the problem. This usually leads the developer 
+into a long series of bruteforce debugging where they explore all possible paths
+leading up to the symptoms hoping they will run into something suspicious.
+
+In an attempt to reduce this mindless guessing and time wasted for the
+developer, the research of fault localization is used to programmatically
+understand where the error could be coming from. The project we are working
+with is capable of creating a list of files that are most likely to have the
+bug within them.
+
+### Focus
+
+Our focus will be to take that project and streamline the process so it is
+easier for an average developer to pickup and plug into their project to help
+their workflow. We will be creating a Software as a Service(SaaS) using the
+concept of the BugLocalization project that Professor Kontogainnis has
+organized in the past. 
+
+### Key results
+
+We were able to significantly improve the existing codebases and reduce a large
+amount of complexity from the processing. This allowed us to easily plug the code
+into an API that we created. The API issues from a Github repository and then
+initiates a modified version of the BugLocalization process.
+
+### Significance
+
+This work is very significant as it has the opportunity to be the first easily
+pluggable fault localization software that can be used without extensive
+resources. We hope in the future this service would be used as commonly as
+other CI tools like Travis.
+
+### Report Structure
+
+The report will first cover terms needed to understand the report, then some
+background information about the algorithm and process used inside
+BugLocalization and finally the objectives, strategy and results of our
+development
 
 # Concepts, Terms, Definitions, Equations
 
