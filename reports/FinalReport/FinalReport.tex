@@ -147,10 +147,9 @@ at sem nunc. Nunc non ultrices ex, et egestas odio. \end{abstract}
 \section{\texorpdfstring{Introduction \emph{(1.5 pages
 max)}}{Introduction (1.5 pages max)}}\label{introduction-1.5-pages-max}}
 
-\hypertarget{concepts-terms-definitions-equations-1-page-max}{%
-\section{\texorpdfstring{Concepts, Terms, Definitions, Equations
-\emph{(1 page
-max)}}{Concepts, Terms, Definitions, Equations (1 page max)}}\label{concepts-terms-definitions-equations-1-page-max}}
+\hypertarget{concepts-terms-definitions-equations}{%
+\section{Concepts, Terms, Definitions,
+Equations}\label{concepts-terms-definitions-equations}}
 
 \hypertarget{rsf}{%
 \subsubsection{RSF}\label{rsf}}
@@ -240,47 +239,61 @@ intervention was required between steps.
 
 \includegraphics[width=500px]{../images/FaultPhases}
 
-\hypertarget{development-objectives-0.75-page-max}{%
-\section{\texorpdfstring{Development Objectives \emph{(0.75 page
-max)}}{Development Objectives (0.75 page max)}}\label{development-objectives-0.75-page-max}}
+\hypertarget{development-objectives}{%
+\section{Development Objectives}\label{development-objectives}}
 
-\hypertarget{develop-a-complete-system-o1}{%
-\subsubsection{Develop a complete system
-(O1)}\label{develop-a-complete-system-o1}}
+The focus will be to design and develop a system that is capable of
+processing bug reports and extracting useful information about them, and
+then using that information to provide the developers useful insight
+into where the bug may be within a large code base. The goal is to
+reduce the amount of time a developer will need to reach the correct bug
+after initially reviewing the bug report.
 
-Since they are so many individual parts to the system required to run
-the system, we wanted to combine scripts and Java code into an easy to
-access complete system. Considering there were still some Python scripts
-we did not get access to by the end of the project, it would be very
-beneficial to have a complete system that is able to handle new
-codebases and improve with new bug reports.
+The system will be developed in such a way that it is easily integrated
+into a continuous delivery pipeline. The project can be divided into
+three distinct components.
 
-\hypertarget{be-able-to-integrate-with-a-github-based-workflow-o2}{%
-\subsubsection{Be able to integrate with a GitHub based workflow
-(O2)}\label{be-able-to-integrate-with-a-github-based-workflow-o2}}
+\hypertarget{data-processing-o1}{%
+\subsubsection{Data Processing (O1)}\label{data-processing-o1}}
 
-We saw a great opportunity to integrate this system into GitHub's
-system. Initially, the system was set up to read reports from BugZilla,
-but we wanted to add the ability to integrate the system with GitHib's
-issue tracker. This would entail fetching new issues as they are created
-in a repo and processing them, pushing results back to the issue page so
-the developers can get a head start, and allowing users to authenticate
-using GitHub.
+In order for the entire system to work correctly the core essential data
+processing and analysis has to be effective in detecting the errors.
+Therefore, the first step is developing a system that can use NLP to
+process all the bug reports associated with a project to come up with a
+list of keywords and process the code base to determine a map of
+relationships between function calls. This code has now been written and
+is mostly within our project.
 
-\hypertarget{operate-as-a-standalone-service-with-a-ui-o3}{%
-\subsubsection{Operate as a standalone service with a UI
-(O3)}\label{operate-as-a-standalone-service-with-a-ui-o3}}
+\hypertarget{user-interface-o2}{%
+\subsubsection{User Interface (O2)}\label{user-interface-o2}}
 
-The system initially was just run through a terminal, and because there
-aren't too many options needed from the user, it would be beneficial to
-create a system that can work independantly with an easy to use
-interface. This would Work in a similar fashion to other CI tools, such
-as Travis. We would also plan to give users the control to hook into any
-of their repositories.
+The next step in delivering the system to a real user, is developing a
+front end where a user can input a repository for the system to begin
+processing. Ideal operation of this tool would occur like other DevOps
+pipeline tools such as travis-ci.org where a user can link a repository
+they own and the tool can push it's results back into the bug report for
+developers to see. There will not be too many interactions available on
+the front end other than viewing the results of the system and picking
+new repositories. This portion of the project is not yet completed.
+Refer to deviations section to understand the reasoning for putting the
+interface as the last priority.
 
-\hypertarget{system-requirements-2-pages-max}{%
-\section{\texorpdfstring{System Requirements \emph{(2 pages
-max)}}{System Requirements (2 pages max)}}\label{system-requirements-2-pages-max}}
+\hypertarget{runtime-processing-o3}{%
+\subsubsection{Runtime Processing (O3)}\label{runtime-processing-o3}}
+
+Since the front end will be making REST API calls to Github
+repositories, and we need a way to persist processing while providing
+consistent feedback to users, there needs to be a backend API service
+allowing those operations to occur. Another task this portion will be
+responsible for is handling the flow of information when a new bug
+report appears. The backend will be responsible for detecting this,
+starting a new processing task, and posting a ``Fault Report'' back into
+the bug discussion. A substantial amount of work has been done on this
+portion of the project. The backend is able to communicate with Github
+and catch issues posted by users.
+
+\hypertarget{system-requirements}{%
+\section{System Requirements}\label{system-requirements}}
 
 \hypertarget{section-a-data-processing}{%
 \subsubsection{Section A : Data
@@ -453,16 +466,31 @@ Processing}\label{section-c-back-end-runtime-processing}}
   \end{itemize}
 \end{itemize}
 
-\hypertarget{development-strategy-2-pages-max}{%
-\section{\texorpdfstring{Development Strategy \emph{(2 pages
-max)}}{Development Strategy (2 pages max)}}\label{development-strategy-2-pages-max}}
+\hypertarget{development-strategy}{%
+\section{Development Strategy}\label{development-strategy}}
 
-Since this project had a lot of the main functionality already
-implemented, we did not have many choices over what development tools
+Since this project had many parts of it already implemented, just in
+poor condition, we did not have many choices over what development tools
 and languages to use. The majority of the project was written in Java,
 with some separate Python scripts used for data manipulation at some of
-the stages in the system. Including the development tools previously
-mentioned, the following were also used in the system:
+the stages in the system.
+
+Since we started the API from scratch, we had more choices on
+technologies and tools in that section. The API was written in Kotlin
+because it allowed us to have easy access to the Java code since it is
+still a JVM language but also provide higher level functionality and
+cleaner syntax to speed up development. The API is supported by MongoDB
+for storing data from Github issues and the future UI.
+
+Git and Github were used for collaboration between the two developers
+and ngrok was used to host the services. Another tool that really helped
+our development strategy was Robo3t as it allowed us to monitor the
+MongoDB for incoming objects and see them in realtime.
+
+All the datasets we used for our processing came from BugZilla as that
+was the only platform supported by the preexisting preprocessing
+scripts. The project repositories we accessed were amarok, konjueror,
+k3b, and kopete.
 
 \hypertarget{technologies}{%
 \subsubsection{Technologies}\label{technologies}}
@@ -496,20 +524,35 @@ mentioned, the following were also used in the system:
   Robo3T
 \item
   ngrok
+\item
+  Git
+\item
+  Github
 \end{itemize}
 
 \hypertarget{datasets}{%
-\subsection{Datasets}\label{datasets}}
+\subsubsection{Datasets}\label{datasets}}
 
 \begin{itemize}
 \tightlist
 \item
-  BugZilla reports
+  BugZilla bug reports
+
+  \begin{itemize}
+  \tightlist
+  \item
+    amarok repository
+  \item
+    Konqueror repository
+  \item
+    k3b repository
+  \item
+    kopete repository
+  \end{itemize}
 \end{itemize}
 
-\hypertarget{results-10-pages-max}{%
-\section{\texorpdfstring{Results \emph{(10 pages
-max)}}{Results (10 pages max)}}\label{results-10-pages-max}}
+\hypertarget{results}{%
+\section{Results}\label{results}}
 
 \hypertarget{buglocalization-project}{%
 \subsubsection{BugLocalization Project}\label{buglocalization-project}}
@@ -522,7 +565,22 @@ max)}}{Results (10 pages max)}}\label{results-10-pages-max}}
   Reduced very large codebase to 10 files
 \item
   Documented and made more readable for easier integration
+\item
+  Cleaned up data flow to allow easier integration with API
 \end{itemize}
+
+The BugLocalization project has been completely revamped to work better
+with the API design. A large amount of redundant code has been removed
+and only the essential functionality exists. Everything has been
+commented and documented for easier maintainability and modularity.
+
+This project produces two types of output depending on the input and
+which algorithm is chosen for processing the token scoring. Figures 4
+and 5 show you examples of each type of output figure 4 shows the
+results received when you run BugLocalization with a small bug and a
+simple algorithm is chosen. Figure 5 shows the results when you run
+BugLocalization with a large bug and make use of the complex ranking
+algorithm.
 
 \hypertarget{api}{%
 \subsubsection{API}\label{api}}
@@ -537,9 +595,34 @@ max)}}{Results (10 pages max)}}\label{results-10-pages-max}}
   Able to start and end deployments on Pull Requests
 \end{itemize}
 
-\hypertarget{discussion-1.5-pages-max}{%
-\section{\texorpdfstring{Discussion \emph{(1.5 pages
-max)}}{Discussion (1.5 pages max)}}\label{discussion-1.5-pages-max}}
+The API was started from scratch and has progressed into something that
+can be relied on to fetch and process incoming bug reports and support a
+future UI. Currently the API is able to catch incoming Github webhooks
+and take repository information from the HTTP request. Using this
+information and the object model of the repository it can create an
+entry in the database to represent it. When new issues come in they are
+added to the object model inside the database and when processing begins
+it can read that model from the database.
+
+The results produced by the API are visible inside the object model of
+the database. This model populated with some dummy issues can be seen in
+the Robo3t screenshot in figure 6
+
+\newpage
+
+\includegraphics[width=500px]{../images/BugLocalizationFlow}
+\emph{Figure 2}
+
+\includegraphics[width=500px]{../images/Flow} \emph{Figure 3}
+
+\includegraphics[width=500px]{../images/BLSimple} \emph{Figure 4}
+
+\includegraphics[width=500px]{../images/BLComplex} \emph{Figure 5}
+
+\includegraphics[width=400px]{../images/Robo3t} \emph{Figure 6}
+
+\hypertarget{discussion}{%
+\section{Discussion}\label{discussion}}
 
 \hypertarget{threats-to-the-validity-of-the-results}{%
 \subsubsection{Threats to the validity of the
@@ -548,7 +631,7 @@ results}\label{threats-to-the-validity-of-the-results}}
 Due to the large amount of bug reports and the possibility of having
 reports without enough details, the results are not guaranteed to find
 where the fault occurs. The ranking used in the system is useful in
-mitigating incorrect results, but does not gurantee that any of the
+mitigating incorrect results, but does not ensure that any of the
 results will be useful in determining the cause of fault in the
 software. A lot of other methods used to minimize the threats to
 validity were already implemented in the project, but it was mentioned
@@ -585,9 +668,8 @@ would be to get more details from failure reports, but unfortunately
 there are not many alternatives that offer nearly as many reports as
 BugZilla.
 
-\hypertarget{conclusions-1-page-max}{%
-\section{\texorpdfstring{Conclusions \emph{(1 page
-max)}}{Conclusions (1 page max)}}\label{conclusions-1-page-max}}
+\hypertarget{conclusions}{%
+\section{Conclusions}\label{conclusions}}
 
 Unfortunately, for our project we had some communication problems for a
 large portion of the year. We ended up getting a late start to the
@@ -614,33 +696,30 @@ this system in GitHub allows developers to easily discover faults in
 their applications. The system is set to be run whenever an issue was
 added by a user and would notify the repo owner.
 
-\hypertarget{future-work-and-lessons-learnt-1-page-max}{%
-\section{\texorpdfstring{Future Work and Lessons Learnt \emph{(1 page
-max)}}{Future Work and Lessons Learnt (1 page max)}}\label{future-work-and-lessons-learnt-1-page-max}}
+\hypertarget{future-work-and-lessons-learnt}{%
+\section{Future Work and Lessons
+Learnt}\label{future-work-and-lessons-learnt}}
 
 \hypertarget{future-work}{%
 \subsubsection{Future work}\label{future-work}}
 
-\begin{itemize}
-\tightlist
-\item
-  Develop software to process issues incrementally into the
-  BugLocalization
-\item
-  Integrate the BugLocalization project as part of the API and utilize
-  its full power
-\item
-  Make a web UI similar to Travis to display results
-\end{itemize}
+For further development, we would want to develop software to process
+issues incrementally into the BugLocalization. We would then integrate
+the BugLocalization project as part of the API and utilize its full
+power. Since we did not manage to complete O3, we would also want to
+make a web UI similar to Travis to display results.
 
 \hypertarget{lessons-learnt}{%
 \subsubsection{Lessons learnt}\label{lessons-learnt}}
 
-\begin{itemize}
-\tightlist
-\item
-  Develop consistent communication plan with stakeholders
-\end{itemize}
+We have learned from this project how important it is to develop
+consistent communication plan with stakeholders. At many times during
+this project, we went long periods of time without meeting to discuss
+how our progress is going. This created some problems because we were
+unsure of how to run the program initially and had to email a grad
+student to get some of the missing files. Getting email responses took
+longer than in person, so having more consistency to meet and discuss
+problems in person would have been beneficial.
 
 \bibliography{}
 
