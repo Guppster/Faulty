@@ -65,10 +65,10 @@ A database entry for each bug report used for the analysis. Each bug report cont
 Tokens extracted from the bug report are expanded to find other similar tokens. Token expansion includes tokens that are referenced by the original token set.
 
 ### Clique
-- A collection of tokens that are referenced the most within the expanded set of tokens
+A collection of tokens that are referenced the most within the expanded set of tokens.
 
 ### Cluster
-- A group of relationships that are closely related to each other
+A group of relationships that are closely related to each other.
 
 # Development Objectives _(0.75 page max)_
 
@@ -76,12 +76,20 @@ Tokens extracted from the bug report are expanded to find other similar tokens. 
 Since they are so many individual parts to the system required to run the system, we wanted to combine scripts and Java code into an easy to access complete system. Considering there were still some Python scripts we did not get access to by the end of the project, it would be very beneficial to have a complete system that is able to handle new codebases and improve with new bug reports.
 
 ### Be able to integrate with a GitHub based workflow (O2)
-We saw a great opportunity to integrate this system into GitHub's system. Initially, the system was set up to read reports from BugZilla, but we wanted to add the ability to integrate the system with GitHib's issue tracker. This would entail fetching new issues as they are created in a repo and processing them, Pushing results back to the issue page so the developers can get a head start, and allowing users to authenticate using GitHub.
+We saw a great opportunity to integrate this system into GitHub's system. Initially, the system was set up to read reports from BugZilla, but we wanted to add the ability to integrate the system with GitHib's issue tracker. This would entail fetching new issues as they are created in a repo and processing them, pushing results back to the issue page so the developers can get a head start, and allowing users to authenticate using GitHub.
 
 ### Operate as a standalone service with a UI (O3)
 The system initially was just run through a terminal, and because there aren't too many options needed from the user, it would be beneficial to create a system that can work independantly with an easy to use interface. This would Work in a similar fashion to other CI tools, such as Travis. We would also plan to give users the control to hook into any of their repositories 
 
 # System Requirements _(2 pages max)_
+
+### id 1
+In order to complete O1, we needed to have access to all parts of the system which we were unfortunately unable to receive before the end of the project. The implications of creating a complete system would mean that the computer running the system would have to be powerful enough to process all parts of the analysis within a reasonable amount of time in order to be of use to the programmer. Due to the heavy amount of processing required to complete the fault analysis against a large amount of other reports, the average user's computer that runs the system would have to be able to handle repeatedly running the analysis.
+
+### id 2
+Completing O2 required us to have enough parts of the system to be able to connect to GitHub using their API and get issues from their tracker. Since the biggest change to the existing system is the report data used, the requirements of running the system are similar to id 1. The biggest difference being that the resolution of the fault analysis isn't required as immediately as in id 1 because of the low frequency of new issues that are created in most projects.
+
+### id 3
 
 # Development Strategy _(2 pages max)_
 Since this project had a lot of the main functionality already implemented, we did not have many choices over what development tools and languages to use. The majority of the project was written in Java, with some separate Python scripts used for data manipulation at some of the stages in the system. Including the development tools previously mentioned, the following were also used in the system: 
