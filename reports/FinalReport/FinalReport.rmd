@@ -33,17 +33,7 @@ logo: "../images/uwo.jpg"
 abstract-bold: Aiming to reduce debugging time by making fault localization
     software available to the masses via a software as a service solution
 
-abstract:  Sed eu orci dolor sit amet, consectetur adipiscing elit. Duis
-    dapibus nisl vitae tempor placerat. Duis feugiat odio vitae quam pellentesque,
-    ac semper ex sagittis. Nunc id egestas tortor. Morbi nibh tortor, suscipit vel
-    libero quis, placerat molestie nulla. Nullam pellentesque ex ac viverra
-    lobortis. Donec hendrerit nibh nisi, a bibendum urna efficitur ut. Cras
-    venenatis sem magna, vel dignissim augue convallis a. Proin sapien justo,
-    viverra ac enim sit amet, cursus aliquet tellus. Nulla at lacus magna. Nullam
-    sit amet dui convallis, interdum felis eu, viverra ligula. Pellentesque sed
-    mollis nibh, at ultricies nisi.Quisque id velit suscipit ipsum auctor egestas
-    egestas sit amet dui. Curabitur at sem nunc. Nunc non ultrices ex, et egestas
-    odio.  
+abstract:  Most developers run into issues with finding the root cause of a bug report. We begin with a distributed system of scripts that use code and bug reports to find that root cause and we make it into an accessible service for developers of all skill levels. We will be making use of a GitHub workflow using a publisher/consumer model to fetch bugs and provide analysis on them. Using a web UI for the continuous integration tool will allow developers to easily adopt the tool into their projects. Bringing the complex algorithms discovered in previous research to the masses will greatly benefit large projects by reducing debugging time and development resources 
 
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 bibliography: bibliography.bib
@@ -160,7 +150,7 @@ the codebase. If the bug effects more than 15% of total files, we generate
 clusters of related entities using our relationship map produced in phase 2 and
 then for each cluster we check how connected it is to the most important files
 related to our bug. The cluster that is most connected has the highest chance
-of containing the bug.
+of containing the bug.[@Fault, @EMSE]
 
 
 The original system consisted of a collection of scripts written in Java,
@@ -477,3 +467,7 @@ This created some problems because we were unsure of how to run the program
 initially and had to email a grad student to get some of the missing files.
 Getting email responses took longer than in person, so having more consistency
 to meet and discuss problems in person would have been beneficial.
+
+\newpage
+
+#References
